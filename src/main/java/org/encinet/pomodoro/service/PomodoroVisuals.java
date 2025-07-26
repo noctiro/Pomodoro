@@ -8,7 +8,10 @@ import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEntityMetadata;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
+import net.kyori.adventure.title.Title;
 import org.bukkit.boss.BossBar;
+
+import java.time.Duration;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TextDisplay;
 import org.encinet.pomodoro.Pomodoro;
@@ -32,9 +35,26 @@ public class PomodoroVisuals {
 
     public void update(Player player) {
         PomodoroSession session = pomodoroManager.getSession(player);
-        if (session == null) return;
+        if (session == null)
+            return;
 
-        updateBossBar(player, session);
+        if (session.isBossbarEnabled()) {
+            if (session.getBossBar() != null) {
+                session.getBossBar().setVisible(true);
+            }
+            updateBossBar(player, session);
+        } else {
+            if (session.getBossBar() != null) {
+                session.getBossBar().setVisible(false);
+            }
+        }
+
+        if (session.isTitleEnabled()) {
+            updateTitle(player, session);
+        } else {
+            player.clearTitle();
+        }
+
         updateTextDisplay(player, session);
     }
 
@@ -46,13 +66,13 @@ public class PomodoroVisuals {
         String status = languageManager.getStatusMessage(session.getState(), player);
 
         BossBar bossBar = session.getBossBar();
-        bossBar.setTitle(LegacyComponentSerializer.legacySection().serialize(languageManager.getMessage(player, "bossbar.title", Map.of(
-                "preset_name", session.getPreset().name(),
-                "status", status,
-                "current_session", String.valueOf(session.getCurrentSession()),
-                "total_sessions", String.valueOf(session.getSessions()),
-                "time", time
-        ))));
+        bossBar.setTitle(LegacyComponentSerializer.legacySection()
+                .serialize(languageManager.getMessage(player, "bossbar.title", Map.of(
+                        "preset_name", session.getPreset().name(),
+                        "status", status,
+                        "current_session", String.valueOf(session.getCurrentSession()),
+                        "total_sessions", String.valueOf(session.getSessions()),
+                        "time", time))));
 
         PomodoroConfig config = Pomodoro.getInstance().getConfigManager().getConfig(PomodoroConfig.class);
 
@@ -84,8 +104,31 @@ public class PomodoroVisuals {
         bossBar.setProgress(Math.max(0, Math.min(1, progress)));
     }
 
+    private void updateTitle(Player player, PomodoroSession session) {
+        int minutes = session.getTimeLeft() / 60;
+        int seconds = session.getTimeLeft() % 60;
+        String time = String.format("%02d:%02d", minutes, seconds);
+        LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
+        String status = languageManager.getStatusMessage(session.getState(), player);
+
+        Component titleComponent = languageManager.getMessage(player, "title.title", Map.of(
+                "preset_name", session.getPreset().name()
+        ));
+        Component subtitleComponent = languageManager.getMessage(player, "title.subtitle", Map.of(
+                "status", status,
+                "current_session", String.valueOf(session.getCurrentSession()),
+                "total_sessions", String.valueOf(session.getSessions()),
+                "time", time
+        ));
+
+        Title.Times times = Title.Times.times(Duration.ZERO, Duration.ofSeconds(2), Duration.ofSeconds(1));
+        Title title = Title.title(titleComponent, subtitleComponent, times);
+        player.showTitle(title);
+    }
+
     private void updateTextDisplay(Player owner, PomodoroSession session) {
-        if (session == null) return;
+        if (session == null)
+            return;
 
         int minutes = session.getTimeLeft() / 60;
         int seconds = session.getTimeLeft() % 60;
@@ -98,8 +141,7 @@ public class PomodoroVisuals {
             textDisplay.text(languageManager.getMessage(owner, "text-display.format", Map.of(
                     "preset_name", session.getPreset().name(),
                     "status", status,
-                    "time", time
-            )));
+                    "time", time)));
         }
     }
 
@@ -140,14 +182,17 @@ public class PomodoroVisuals {
                 Component translatedText = languageManager.getMessage(player, "text-display.format", Map.of(
                         "preset_name", session.getPreset().name(),
                         "status", status,
-                        "time", time
-                ));
+                        "time", time));
 
                 EntityData<?> originalData = textDataOptional.get();
-                // The value of the EntityData should be a Component, not an Optional<Component>.
-                // The PacketEvents API likely handles the Optional wrapping internally for this data type.
-                // The ClassCastException indicates that an Optional was being used where a Component was expected.
-                EntityData<?> newTextData = new EntityData(originalData.getIndex(), originalData.getType(), translatedText);
+                // The value of the EntityData should be a Component, not an
+                // Optional<Component>.
+                // The PacketEvents API likely handles the Optional wrapping internally for this
+                // data type.
+                // The ClassCastException indicates that an Optional was being used where a
+                // Component was expected.
+                EntityData<?> newTextData = new EntityData(originalData.getIndex(), originalData.getType(),
+                        translatedText);
                 entityDataList.set(entityDataList.indexOf(originalData), newTextData);
             }
         }

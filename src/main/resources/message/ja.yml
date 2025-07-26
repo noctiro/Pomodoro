@@ -125,6 +125,18 @@ ui:
       name: "<italic:false><dark_red>停止</dark_red>"
       lore:
         - "<italic:false><gray>クリックしてタイマーを停止します。</gray>"
+    bossbar:
+      name: "<italic:false><gold>ボスバー</gold>"
+      lore_enabled:
+        - "<italic:false><gray>クリックしてボスバーを<red>無効</red>にします。</gray>"
+      lore_disabled:
+        - "<italic:false><gray>クリックしてボスバーを<green>有効</green>にします。</gray>"
+    title:
+      name: "<italic:false><gold>タイトル</gold>"
+      lore_enabled:
+        - "<italic:false><gray>クリックしてタイトルを<red>無効</red>にします。</gray>"
+      lore_disabled:
+        - "<italic:false><gray>クリックしてタイトルを<green>有効</green>にします。</gray>"
   pomodoro_introduction:
     name: "<italic:false><gold>ポモドーロの使い方は？</gold>"
     lore:
@@ -142,6 +154,10 @@ ui:
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
 
 text-display:
   format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"

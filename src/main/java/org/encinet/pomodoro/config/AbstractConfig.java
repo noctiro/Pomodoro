@@ -20,6 +20,10 @@ public abstract class AbstractConfig {
         this.logger = logger;
     }
 
+    public void set(String path, Object value) {
+        config.set(path, value);
+    }
+
     /**
      * Load configuration values using reflection and ConfigValue annotations.
      * This method now uses a TypeConverter to handle complex type conversions.

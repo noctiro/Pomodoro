@@ -29,6 +29,12 @@ public class PomodoroConfig extends AbstractConfig {
     @ConfigValue("text-display.offset-y")
     private double textDisplayOffsetY = 1.8;
 
+    @ConfigValue("display-defaults.bossbar")
+    private boolean bossbarDefault = true;
+
+    @ConfigValue("display-defaults.title")
+    private boolean titleDefault = true;
+
     @ConfigValue("language.default-language")
     private String defaultLanguage = "en";
 
@@ -88,6 +94,14 @@ public class PomodoroConfig extends AbstractConfig {
 
     public double getTextDisplayOffsetY() {
         return textDisplayOffsetY;
+    }
+
+    public boolean isBossbarDefault() {
+        return bossbarDefault;
+    }
+
+    public boolean isTitleDefault() {
+        return titleDefault;
     }
 
     public String getDefaultLanguage() {

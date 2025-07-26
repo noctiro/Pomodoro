@@ -12,6 +12,7 @@ import org.bukkit.persistence.PersistentDataType;
 import org.encinet.pomodoro.Pomodoro;
 import org.encinet.pomodoro.config.LanguageManager;
 import org.encinet.pomodoro.config.impl.PresetConfig;
+import org.encinet.pomodoro.service.session.PomodoroSession;
 import org.encinet.pomodoro.service.storage.PlayerPresetManager;
 
 import java.util.Map;
@@ -31,11 +32,9 @@ public class UIListener implements Listener {
         String editTitlePrefix = miniMessage
                 .serialize(languageManager.getMessage(player, "ui.edit_title", Map.of("preset_name", "")))
                 .split(":")[0];
-        String timerTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.timer.title"));
         String iconTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.icon_selection.title"));
 
-        boolean isPomodoroUi = title.equals(uiTitle) || title.startsWith(editTitlePrefix) || title.equals(timerTitle)
-                || title.equals(iconTitle);
+        boolean isPomodoroUi = title.equals(uiTitle) || title.startsWith(editTitlePrefix) || title.equals(iconTitle);
 
         if (!isPomodoroUi) {
             return;
@@ -47,13 +46,16 @@ public class UIListener implements Listener {
             return;
         }
         if (title.equals(uiTitle)) {
-            handlePresetSelection(event);
+            // Distinguish between PresetSelectionUI (54) and TimerUI (27)
+            if (event.getClickedInventory().getSize() == 27) {
+                handleTimerClick(event);
+            } else {
+                handlePresetSelection(event);
+            }
         } else if (title.startsWith(editTitlePrefix)) {
             handlePresetEditing(event);
         } else if (title.equals(iconTitle)) {
             handleIconSelection(event);
-        } else {
-            handleTimerClick(event);
         }
     }
 
@@ -87,7 +89,27 @@ public class UIListener implements Listener {
                 player.closeInventory();
                 Pomodoro.getInstance().getSoundManager().playBackSound(player);
                 break;
+            case "toggle_bossbar":
+                toggleVisual(player, "bossbar");
+                break;
+            case "toggle_title":
+                toggleVisual(player, "title");
+                break;
         }
+    }
+
+    private void toggleVisual(Player player, String type) {
+        PomodoroSession session = Pomodoro.getInstance().getPomodoroManager().getSession(player);
+        if (session == null) return;
+
+        if ("bossbar".equals(type)) {
+            session.setBossbarEnabled(!session.isBossbarEnabled());
+        } else if ("title".equals(type)) {
+            session.setTitleEnabled(!session.isTitleEnabled());
+        }
+
+        Pomodoro.getInstance().getSoundManager().playClickSound(player);
+        Pomodoro.getInstance().getUiManager().openTimerUI(player); // Refresh
     }
 
     private void handlePresetSelection(InventoryClickEvent event) {

@@ -25,7 +25,7 @@ public class TimerUI {
         }
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
 
-        Inventory inventory = Bukkit.createInventory(null, 27, languageManager.getMessage(player, "ui.timer.title"));
+        Inventory inventory = Bukkit.createInventory(null, 27, languageManager.getMessage(player, "ui.title"));
 
         // Filler
         ItemStack filler = ItemBuilder.createFiller();
@@ -49,6 +49,10 @@ public class TimerUI {
                 .build();
         inventory.setItem(15, stopItem);
 
+        // Visuals Toggle Buttons
+        inventory.setItem(21, createVisualsToggleButton(player, languageManager, actionKey, "bossbar"));
+        inventory.setItem(23, createVisualsToggleButton(player, languageManager, actionKey, "title"));
+
         return inventory;
     }
 
@@ -59,7 +63,7 @@ public class TimerUI {
         }
 
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
-        Component expectedTitle = languageManager.getMessage(player, "ui.timer.title");
+        Component expectedTitle = languageManager.getMessage(player, "ui.title");
 
         InventoryView openInventory = player.getOpenInventory();
         if (!openInventory.title().equals(expectedTitle)) {
@@ -75,6 +79,10 @@ public class TimerUI {
 
         // Pause/Resume Button
         inventory.setItem(11, createToggleButton(player, session, languageManager, actionKey));
+
+        // Visuals Toggle Buttons
+        inventory.setItem(21, createVisualsToggleButton(player, languageManager, actionKey, "bossbar"));
+        inventory.setItem(23, createVisualsToggleButton(player, languageManager, actionKey, "title"));
     }
 
     private static ItemStack createStatusItem(Player player, PomodoroSession session, LanguageManager languageManager) {
@@ -105,5 +113,33 @@ public class TimerUI {
                     .build();
         }
         return null;
+    }
+
+    private static ItemStack createVisualsToggleButton(Player player, LanguageManager languageManager, NamespacedKey actionKey, String type) {
+        PomodoroSession session = Pomodoro.getInstance().getPomodoroManager().getSession(player);
+        if (session == null) return null;
+
+        boolean enabled;
+        Material material;
+        String nameKey;
+        String loreKey;
+
+        if (type.equals("bossbar")) {
+            enabled = session.isBossbarEnabled();
+            material = enabled ? Material.LIME_DYE : Material.GRAY_DYE;
+            nameKey = "ui.timer.bossbar.name";
+            loreKey = enabled ? "ui.timer.bossbar.lore_enabled" : "ui.timer.bossbar.lore_disabled";
+        } else {
+            enabled = session.isTitleEnabled();
+            material = enabled ? Material.LIME_DYE : Material.GRAY_DYE;
+            nameKey = "ui.timer.title.name";
+            loreKey = enabled ? "ui.timer.title.lore_enabled" : "ui.timer.title.lore_disabled";
+        }
+
+        return new ItemBuilder(material)
+                .displayName(languageManager.getMessage(player, nameKey))
+                .lore(languageManager.getMessageList(player, loreKey))
+                .persistentData(actionKey, "toggle_" + type)
+                .build();
     }
 }

@@ -125,6 +125,18 @@ ui:
       name: "<italic:false><dark_red>Стоп</dark_red>"
       lore:
         - "<italic:false><gray>Нажмите, чтобы остановить таймер.</gray>"
+    bossbar:
+      name: "<italic:false><gold>Боссбар</gold>"
+      lore_enabled:
+        - "<italic:false><gray>Нажмите, чтобы <red>отключить</red> боссбар.</gray>"
+      lore_disabled:
+        - "<italic:false><gray>Нажмите, чтобы <green>включить</green> боссбар.</gray>"
+    title:
+      name: "<italic:false><gold>Заголовок</gold>"
+      lore_enabled:
+        - "<italic:false><gray>Нажмите, чтобы <red>отключить</red> заголовок.</gray>"
+      lore_disabled:
+        - "<italic:false><gray>Нажмите, чтобы <green>включить</green> заголовок.</gray>"
   pomodoro_introduction:
     name: "<italic:false><gold>Как использовать Pomodoro?</gold>"
     lore:
@@ -142,6 +154,10 @@ ui:
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
 
 text-display:
   format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"

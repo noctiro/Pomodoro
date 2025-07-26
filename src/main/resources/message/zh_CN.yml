@@ -125,6 +125,18 @@ ui:
       name: "<italic:false><dark_red>停止</dark_red>"
       lore:
         - "<italic:false><gray>单击停止计时器</gray>"
+    bossbar:
+      name: "<italic:false><gold>Boss栏</gold>"
+      lore_enabled:
+        - "<italic:false><gray>单击<red>禁用</red>Boss栏</gray>"
+      lore_disabled:
+        - "<italic:false><gray>单击<green>启用</green>Boss栏</gray>"
+    title:
+      name: "<italic:false><gold>标题</gold>"
+      lore_enabled:
+        - "<italic:false><gray>单击<red>禁用</red>标题</gray>"
+      lore_disabled:
+        - "<italic:false><gray>单击<green>启用</green>标题</gray>"
 
   pomodoro_introduction:
     name: "<italic:false><gold>如何使用番茄钟？</gold>"
@@ -143,6 +155,10 @@ ui:
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
 
 text-display:
   format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"

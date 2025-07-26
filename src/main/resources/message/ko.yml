@@ -125,6 +125,18 @@ ui:
       name: "<italic:false><dark_red>중지</dark_red>"
       lore:
         - "<italic:false><gray>타이머를 중지하려면 클릭하십시오.</gray>"
+    bossbar:
+      name: "<italic:false><gold>보스바</gold>"
+      lore_enabled:
+        - "<italic:false><gray>보스바를 <red>비활성화</red>하려면 클릭하십시오.</gray>"
+      lore_disabled:
+        - "<italic:false><gray>보스바를 <green>활성화</green>하려면 클릭하십시오.</gray>"
+    title:
+      name: "<italic:false><gold>타이틀</gold>"
+      lore_enabled:
+        - "<italic:false><gray>타이틀을 <red>비활성화</red>하려면 클릭하십시오.</gray>"
+      lore_disabled:
+        - "<italic:false><gray>타이틀을 <green>활성화</green>하려면 클릭하십시오.</gray>"
   pomodoro_introduction:
     name: "<italic:false><gold>뽀모도로 사용법은?</gold>"
     lore:
@@ -142,6 +154,10 @@ ui:
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
 
 text-display:
   format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"

@@ -11,6 +11,12 @@ restrictions:
   # Delay in milliseconds before pulling the player back if they move too far.
   pull-back-delay: 3000
 
+# Default display settings for new sessions.
+# Players can toggle these visuals on or off in the timer UI.
+display-defaults:
+  bossbar: true
+  title: true
+
 text-display:
   offset-y: 2.4
 

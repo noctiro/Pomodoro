@@ -5,6 +5,7 @@ import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TextDisplay;
 import org.encinet.pomodoro.Pomodoro;
+import org.encinet.pomodoro.config.impl.PomodoroConfig;
 import org.encinet.pomodoro.config.impl.PresetConfig;
 import org.encinet.pomodoro.ui.TimerUI;
 
@@ -25,6 +26,9 @@ public class PomodoroSession {
     private TextDisplay textDisplay;
     private Location startLocation;
 
+    private boolean bossbarEnabled;
+    private boolean titleEnabled;
+
     public PomodoroSession(PresetConfig.Preset preset) {
         this.preset = preset;
         // Pre-calculate durations in seconds
@@ -33,6 +37,10 @@ public class PomodoroSession {
         this.longBreakDuration = preset.longBreak() * 60;
         this.sessions = preset.sessions();
         this.timeLeft = this.workDuration;
+
+        PomodoroConfig config = Pomodoro.getInstance().getConfigManager().getConfig(PomodoroConfig.class);
+        this.bossbarEnabled = config.isBossbarDefault();
+        this.titleEnabled = config.isTitleDefault();
     }
 
     public void setState(PomodoroState newState, Player player) {
@@ -130,5 +138,21 @@ public class PomodoroSession {
 
     public void setStartLocation(Location startLocation) {
         this.startLocation = startLocation;
+    }
+
+    public boolean isBossbarEnabled() {
+        return bossbarEnabled;
+    }
+
+    public void setBossbarEnabled(boolean bossbarEnabled) {
+        this.bossbarEnabled = bossbarEnabled;
+    }
+
+    public boolean isTitleEnabled() {
+        return titleEnabled;
+    }
+
+    public void setTitleEnabled(boolean titleEnabled) {
+        this.titleEnabled = titleEnabled;
     }
 }
