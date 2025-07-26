@@ -1,0 +1,29 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+# This is the template for creating new presets.
+template:
+  enchanted: false
+  work: 25 # minutes
+  break: 5 # minutes
+  long-break: 15 # minutes
+  sessions: 4
+
+presets:
+  standard:
+    name: "Standard"
+    icon: "CLOCK"
+    enchanted: false
+    work: 25 # minutes
+    break: 5 # minutes
+    long-break: 15 # minutes
+    sessions: 4
+  class:
+    name: "A Class"
+    icon: "BOOK"
+    enchanted: false
+    work: 40 # minutes
+    break: 10 # minutes
+    long-break: 20 # minutes
+    sessions: 2
+

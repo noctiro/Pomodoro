@@ -1,0 +1,9 @@
+name: Pomodoro
+version: '1.0-SNAPSHOT'
+main: org.encinet.pomodoro.Pomodoro
+api-version: '1.21'
+authors: [ Noctiro ]
+dependencies:
+  - name: packetevents
+    required: true
+    load: BEFORE

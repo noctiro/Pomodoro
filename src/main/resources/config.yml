@@ -1,0 +1,76 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 2
+
+restrictions:
+  allow-chat: true
+  # Whether to completely restrict player movement during work sessions.
+  # If set to true, players will not be able to move at all.
+  # If set to false, players can move within the max-distance.
+  restrict-movement: false
+  max-distance: 10
+  # Delay in milliseconds before pulling the player back if they move too far.
+  pull-back-delay: 3000
+
+text-display:
+  offset-y: 2.4
+
+language:
+  # The default language to use when the client language cannot be obtained or the corresponding language file does not exist.
+  default-language: "en"
+  # Whether to adapt to the client language.
+  # If true, the client language will be used.
+  # If the corresponding language file does not exist, it will fall back to the default language.
+  adaptive-language: true
+
+# Sound effects configuration
+sounds:
+  # Sound for UI clicks
+  ui-click:
+    name: "ui.button.click"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for timer end warning
+  timer-end-warning:
+    name: "block.note_block.hat"
+    volume: 20.0
+    pitch: 1.0
+  # Sound for next cycle
+  next-cycle:
+    name: "entity.player.levelup"
+    volume: 5.0
+    pitch: 1.0
+  # Sound for leave warning
+  leave-warning:
+    name: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for UI success
+  ui-success:
+    name: "entity.experience_orb.pickup"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for UI fail
+  ui-fail:
+    name: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for UI back
+  ui-back:
+    name: "ui.button.click"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for completing all rounds
+  complete-all-rounds:
+    name: "entity.firework_rocket.launch"
+    volume: 20.0
+    pitch: 1.0
+  # Sound for starting a new round
+  new-round-start:
+    name: "block.bell.use"
+    volume: 1.0
+    pitch: 1.0
+  # Sound for session failure
+  session-fail:
+    name: "entity.villager.no"
+    volume: 1.0
+    pitch: 1.0

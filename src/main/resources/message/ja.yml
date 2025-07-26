@@ -1,0 +1,154 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+messages:
+  timer_start: "<green>ポモドーロタイマーがプリセット: <preset>で開始されました！</green>"
+  timer_stop: "<red>ポモドーロタイマーが停止しました。</red>"
+  timer_pause: "<yellow>ポモドーロタイマーが一時停止しました。</yellow>"
+  timer_resume: "<green>ポモドー-ロタイマーが再開されました。</green>"
+  work_start: "<gold>集中する時間です！作業セッションが開始されました。</gold>"
+  break_start: "<aqua>休憩の時間です！お疲れ様でした。</aqua>"
+  long_break_start: "<blue>長い休憩の時間です！セッションお疲れ様でした。</blue>"
+  cant_chat: "<red>作業セッション中はチャットできません！</red>"
+  preset_created: "<green>プリセット '<preset_name>' が作成されました。</green>"
+  preset_renamed: "<green>プリセット '<old_name>' の名前が '<new_name>' に変更されました。</green>"
+  preset_removed: "<red>プリセット '<preset_name>' が削除されました。</red>"
+  enter_preset_name: "<yellow>チャットに新しいプリセット名を入力してください。</yellow>"
+  enter_new_preset_name: "<yellow>チャットにプリセットの新しい名前を入力してください。</yellow>"
+  enter_new_icon_name: "<yellow>チャットに新しいアイコンの素材名を入力してください。</yellow>"
+  invalid_icon: "<red>無効なアイテム素材名です。</red>"
+  preset_not_found: "<red>プリセットが見つかりません: <preset>。</red>"
+  reload: "<green>設定がリロードされました。</green>"
+  timer_already_running: "<red>タイマーはすでに実行中です！</red>"
+  no_active_timer: "<red>アクティブなタイマーがありません。</red>"
+  cannot_pause_timer: "<red>タイマーは作業または休憩セッション中にのみ一時停止できます。</red>"
+  timer_not_paused: "<red>タイマーは一時停止していません。</red>"
+
+actionbar:
+  moved_too_far: "<red>開始地点から離れすぎています！</red>"
+  cant_move: "<red>作業セッション中は移動できません！</red>"
+  cant_teleport: "<red>作業セッション中はテレポートできません！</red>"
+
+ui:
+  title: "<gradient:#e65100:#f57c00><bold>ポモドーロ設定</bold></gradient>"
+  edit_title: "<gradient:#e65100:#f57c00><bold>編集中: </bold></gradient><gradient:#e65100:#f57c00><italic:false><bold><preset_name></bold></gradient>"
+  back_button: "<italic:false><red>戻る</red>"
+  work_duration:
+    name: "<italic:false><gold>作業時間</gold>"
+    lore:
+      - "<italic:false><gray>現在: <white><duration> 分</white></gray>"
+      - ""
+      - "<italic:false><green>左クリックで1追加</green>"
+      - "<italic:false><red>右クリックで1減算</red>"
+      - "<italic:false><yellow>Shift+クリックで10調整</yellow>"
+  break_duration:
+    name: "<italic:false><aqua>休憩時間</aqua>"
+    lore:
+      - "<italic:false><gray>現在: <white><duration> 分</white></gray>"
+      - ""
+      - "<italic:false><green>左クリックで1追加</green>"
+      - "<italic:false><red>右クリックで1減算</red>"
+      - "<italic:false><yellow>Shift+クリックで10調整</yellow>"
+  long_break_duration:
+    name: "<italic:false><#f57c00>長い休憩時間</#f57c00>"
+    lore:
+      - "<italic:false><gray>現在: <white><duration> 分</white></gray>"
+      - ""
+      - "<italic:false><green>左クリックで1追加</green>"
+      - "<italic:false><red>右クリックで1減算</red>"
+      - "<italic:false><yellow>Shift+クリックで10調整</yellow>"
+  sessions:
+    name: "<italic:false><gold>セッション</gold>"
+    lore:
+      - "<italic:false><gray>現在: <white><count></white></gray>"
+      - ""
+      - "<italic:false><green>左クリックで1追加</green>"
+      - "<italic:false><red>右クリックで1減算</red>"
+      - "<italic:false><yellow>Shift+クリックで10調整</yellow>"
+  create_preset:
+    name: "<italic:false><green>新しいプリセットを作成</green>"
+    lore:
+      - "<italic:false><gray>デフォルト設定で新しい</gray>"
+      - "<italic:false><gray>プリセットを作成します。</gray>"
+  rename_preset:
+    name: "<italic:false><gold>プリセットの名前を変更</gold>"
+    lore:
+      - "<italic:false><gray>クリックしてこのプリセットの名前を変更します。</gray>"
+  reicon_preset:
+    name: "<italic:false><aqua>アイコンを変更</aqua>"
+    lore:
+      - "<italic:false><gray>クリックしてこのプリセットのアイコンを変更します。</gray>"
+  icon_selection:
+    title: "<gradient:#e65100:#f57c00><bold>アイコンを選択</bold></gradient>"
+    enchant:
+      name: "<italic:false><#e040fb><bold>エンチャントを切り替え</bold></#e040fb>"
+      lore:
+        - "<italic:false><gray>現在: <white><status></white></gray>"
+    enchant_status:
+      enabled: "<green>有効</green>"
+      disabled: "<red>無効</red>"
+    custom_id:
+      name: "<italic:false><gold>カスタム素材</gold>"
+      lore:
+        - "<italic:false><gray>クリックして素材名を入力します。</gray>"
+  player_preset:
+    lore:
+      - "<italic:false><gray>作業: <white><work> 分</white></gray>"
+      - "<italic:false><gray>休憩: <white><break> 分</white></gray>"
+      - "<italic:false><gray>長い休憩: <white><long_break> 分</white></gray>"
+      - "<italic:false><gray>セッション: <white><sessions></white></gray>"
+      - ""
+      - "<italic:false><green>左クリックで適用</green>"
+      - "<italic:false><yellow>右クリックで編集</yellow>"
+      - "<italic:false><red>Shift+右クリックで削除</red>"
+  player_stats:
+    lore:
+      - "<italic:false><gray>合計集中時間:</gray>"
+      - "<italic:false><white><total_focus_time></white>"
+      - ""
+      - "<italic:false><gray>完了した作業セッション: <white><total_work_sessions></white></gray>"
+  timer:
+    title: "<gradient:#e65100:#f57c00><bold>ポモドーロタイマー</bold></gradient>"
+    status:
+      name: "<italic:false><gold>ステータス: <white><status></white></gold>"
+      lore:
+        - "<italic:false><gray>残り時間: <white><time></white></gray>"
+    pause:
+      name: "<italic:false><red>一時停止</red>"
+      lore:
+        - "<italic:false><gray>クリックしてタイマーを一時停止します。</gray>"
+    resume:
+      name: "<italic:false><green>再開</green>"
+      lore:
+        - "<italic:false><gray>クリックしてタイマーを再開します。</gray>"
+    stop:
+      name: "<italic:false><dark_red>停止</dark_red>"
+      lore:
+        - "<italic:false><gray>クリックしてタイマーを停止します。</gray>"
+  pomodoro_introduction:
+    name: "<italic:false><gold>ポモドーロの使い方は？</gold>"
+    lore:
+      - "<italic:false><gray>ポモドーロテクニックは集中力を高め、燃え尽き症候群を防ぎます。</gray>"
+      - ""
+      - "<italic:false><white>仕組み:</white>"
+      - "<italic:false><gray>1. 左側で<aqua>プリセットを選択</aqua>します。</gray>"
+      - "<italic:false><gray>2. タイマーが<gold>作業</gold>セッションを開始します。</gray>"
+      - "<italic:false><gray>3. タイマーが鳴るまでタスクに集中します。</gray>"
+      - "<italic:false><gray>4. 短い<green>休憩</green>を取ります。</gray>"
+      - "<italic:false><gray>5. 数セッション後、<blue>長い休憩</blue>を取ります。</gray>"
+      - "<italic:false><gray>6. その後、プロセスはステップ2から繰り返されます。</gray>"
+      - ""
+      - "<italic:false><yellow>プリセットをクリックして最初のセッションを開始してください！</yellow>"
+
+bossbar:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+text-display:
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"
+
+status:
+  work: "作業中"
+  break: "休憩中"
+  long_break: "長い休憩中"
+  paused: "一時停止中"
+  stopped: "停止"

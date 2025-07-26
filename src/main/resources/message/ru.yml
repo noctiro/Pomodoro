@@ -1,0 +1,154 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+messages:
+  timer_start: "<green>Таймер Pomodoro запущен с пресетом: <preset>!</green>"
+  timer_stop: "<red>Таймер Pomodoro остановлен.</red>"
+  timer_pause: "<yellow>Таймер Pomodoro приостановлен.</yellow>"
+  timer_resume: "<green>Таймер Pomodoro возобновлен.</green>"
+  work_start: "<gold>Время сосредоточиться! Рабочая сессия началась.</gold>"
+  break_start: "<aqua>Время для перерыва! Вы это заслужили.</aqua>"
+  long_break_start: "<blue>Время для длинного перерыва! Отличная работа по завершению сессий.</blue>"
+  cant_chat: "<red>Вы не можете общаться во время рабочей сессии!</red>"
+  preset_created: "<green>Пресет '<preset_name>' создан.</green>"
+  preset_renamed: "<green>Пресет '<old_name>' переименован в '<new_name>'.</green>"
+  preset_removed: "<red>Пресет '<preset_name>' удален.</red>"
+  enter_preset_name: "<yellow>Пожалуйста, введите новое имя пресета в чат.</yellow>"
+  enter_new_preset_name: "<yellow>Пожалуйста, введите новое имя для пресета в чат.</yellow>"
+  enter_new_icon_name: "<yellow>Пожалуйста, введите новое имя материала для иконки в чат.</yellow>"
+  invalid_icon: "<red>Неверное имя материала предмета.</red>"
+  preset_not_found: "<red>Пресет не найден: <preset>.</red>"
+  reload: "<green>Конфигурация перезагружена.</green>"
+  timer_already_running: "<red>Таймер уже запущен!</red>"
+  no_active_timer: "<red>У вас нет активного таймера.</red>"
+  cannot_pause_timer: "<red>Таймер можно приостановить только во время рабочих или перерывных сессий.</red>"
+  timer_not_paused: "<red>Таймер не приостановлен.</red>"
+
+actionbar:
+  moved_too_far: "<red>Вы отошли слишком далеко от начальной точки!</red>"
+  cant_move: "<red>Вы не можете двигаться во время рабочей сессии!</red>"
+  cant_teleport: "<red>Вы не можете телепортироваться во время рабочей сессии!</red>"
+
+ui:
+  title: "<gradient:#e65100:#f57c00><bold>Настройки Pomodoro</bold></gradient>"
+  edit_title: "<gradient:#e65100:#f57c00><bold>Редактировать: </bold></gradient><gradient:#e65100:#f57c00><italic:false><bold><preset_name></bold></gradient>"
+  back_button: "<italic:false><red>Назад</red>"
+  work_duration:
+    name: "<italic:false><gold>Продолжительность работы</gold>"
+    lore:
+      - "<italic:false><gray>Текущая: <white><duration> минут</white></gray>"
+      - ""
+      - "<italic:false><green>ЛКМ, чтобы добавить 1</green>"
+      - "<italic:false><red>ПКМ, чтобы вычесть 1</red>"
+      - "<italic:false><yellow>Shift+Клик для изменения на 10</yellow>"
+  break_duration:
+    name: "<italic:false><aqua>Продолжительность перерыва</aqua>"
+    lore:
+      - "<italic:false><gray>Текущая: <white><duration> минут</white></gray>"
+      - ""
+      - "<italic:false><green>ЛКМ, чтобы добавить 1</green>"
+      - "<italic:false><red>ПКМ, чтобы вычесть 1</red>"
+      - "<italic:false><yellow>Shift+Клик для изменения на 10</yellow>"
+  long_break_duration:
+    name: "<italic:false><#f57c00>Продолжительность длинного перерыва</#f57c00>"
+    lore:
+      - "<italic:false><gray>Текущая: <white><duration> минут</white></gray>"
+      - ""
+      - "<italic:false><green>ЛКМ, чтобы добавить 1</green>"
+      - "<italic:false><red>ПКМ, чтобы вычесть 1</red>"
+      - "<italic:false><yellow>Shift+Клик для изменения на 10</yellow>"
+  sessions:
+    name: "<italic:false><gold>Сессии</gold>"
+    lore:
+      - "<italic:false><gray>Текущее: <white><count></white></gray>"
+      - ""
+      - "<italic:false><green>ЛКМ, чтобы добавить 1</green>"
+      - "<italic:false><red>ПКМ, чтобы вычесть 1</red>"
+      - "<italic:false><yellow>Shift+Клик для изменения на 10</yellow>"
+  create_preset:
+    name: "<italic:false><green>Создать новый пресет</green>"
+    lore:
+      - "<italic:false><gray>Создает новый пресет с</gray>"
+      - "<italic:false><gray>настройками по умолчанию.</gray>"
+  rename_preset:
+    name: "<italic:false><gold>Переименовать пресет</gold>"
+    lore:
+      - "<italic:false><gray>Нажмите, чтобы переименовать этот пресет.</gray>"
+  reicon_preset:
+    name: "<italic:false><aqua>Изменить иконку</aqua>"
+    lore:
+      - "<italic:false><gray>Нажмите, чтобы изменить иконку этого пресета.</gray>"
+  icon_selection:
+    title: "<gradient:#e65100:#f57c00><bold>Выберите иконку</bold></gradient>"
+    enchant:
+      name: "<italic:false><#e040fb><bold>Переключить зачарование</bold></#e040fb>"
+      lore:
+        - "<italic:false><gray>Текущее: <white><status></white></gray>"
+    enchant_status:
+      enabled: "<green>Включено</green>"
+      disabled: "<red>Выключено</red>"
+    custom_id:
+      name: "<italic:false><gold>Пользовательский материал</gold>"
+      lore:
+        - "<italic:false><gray>Нажмите, чтобы ввести имя материала.</gray>"
+  player_preset:
+    lore:
+      - "<italic:false><gray>Работа: <white><work> мин</white></gray>"
+      - "<italic:false><gray>Перерыв: <white><break> мин</white></gray>"
+      - "<italic:false><gray>Длинный перерыв: <white><long_break> мин</white></gray>"
+      - "<italic:false><gray>Сессии: <white><sessions></white></gray>"
+      - ""
+      - "<italic:false><green>ЛКМ, чтобы применить</green>"
+      - "<italic:false><yellow>ПКМ, чтобы редактировать</yellow>"
+      - "<italic:false><red>Shift + ПКМ, чтобы удалить</red>"
+  player_stats:
+    lore:
+      - "<italic:false><gray>Общее время фокусировки:</gray>"
+      - "<italic:false><white><total_focus_time></white>"
+      - ""
+      - "<italic:false><gray>Завершенные рабочие сессии: <white><total_work_sessions></white></gray>"
+  timer:
+    title: "<gradient:#e65100:#f57c00><bold>Таймер Pomodoro</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Статус: <white><status></white></gold>"
+      lore:
+        - "<italic:false><gray>Осталось времени: <white><time></white></gray>"
+    pause:
+      name: "<italic:false><red>Пауза</red>"
+      lore:
+        - "<italic:false><gray>Нажмите, чтобы приостановить таймер.</gray>"
+    resume:
+      name: "<italic:false><green>Возобновить</green>"
+      lore:
+        - "<italic:false><gray>Нажмите, чтобы возобновить таймер.</gray>"
+    stop:
+      name: "<italic:false><dark_red>Стоп</dark_red>"
+      lore:
+        - "<italic:false><gray>Нажмите, чтобы остановить таймер.</gray>"
+  pomodoro_introduction:
+    name: "<italic:false><gold>Как использовать Pomodoro?</gold>"
+    lore:
+      - "<italic:false><gray>Техника Pomodoro помогает вам сосредоточиться и избежать выгорания.</gray>"
+      - ""
+      - "<italic:false><white>Как это работает:</white>"
+      - "<italic:false><gray>1. <aqua>Выберите пресет</aqua> слева.</gray>"
+      - "<italic:false><gray>2. Таймер запускает сессию <gold>Работы</gold>.</gray>"
+      - "<italic:false><gray>3. Сосредоточьтесь на своей задаче, пока не прозвенит таймер.</gray>"
+      - "<italic:false><gray>4. Сделайте короткий <green>Перерыв</green>.</gray>"
+      - "<italic:false><gray>5. После нескольких сессий сделайте <blue>Длинный перерыв</blue>.</gray>"
+      - "<italic:false><gray>6. Затем процесс повторяется с шага 2.</gray>"
+      - ""
+      - "<italic:false><yellow>Нажмите на пресет, чтобы начать первую сессию!</yellow>"
+
+bossbar:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+text-display:
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"
+
+status:
+  work: "Работа"
+  break: "Перерыв"
+  long_break: "Длинный перерыв"
+  paused: "Пауза"
+  stopped: "Остановлен"

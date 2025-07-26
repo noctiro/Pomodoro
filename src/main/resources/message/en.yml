@@ -1,0 +1,155 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+messages:
+  timer_start: "<green>Pomodoro timer started with preset: <preset>!</green>"
+  timer_stop: "<red>Pomodoro timer stopped.</red>"
+  timer_pause: "<yellow>Pomodoro timer paused.</yellow>"
+  timer_resume: "<green>Pomodoro timer resumed.</green>"
+  work_start: "<gold>Time to focus! Work session has begun.</gold>"
+  break_start: "<aqua>Time for a break! You've earned it.</aqua>"
+  long_break_start: "<blue>Time for a long break! Great job on completing your sessions.</blue>"
+  cant_chat: "<red>You can't chat while in a work session!</red>"
+  preset_created: "<green>Preset '<preset_name>' created.</green>"
+  preset_renamed: "<green>Preset '<old_name>' renamed to '<new_name>'.</green>"
+  preset_removed: "<red>Preset '<preset_name>' removed.</red>"
+  enter_preset_name: "<yellow>Please type the new preset name in chat.</yellow>"
+  enter_new_preset_name: "<yellow>Please type the new name for the preset in chat.</yellow>"
+  enter_new_icon_name: "<yellow>Please type the new icon material name in chat.</yellow>"
+  invalid_icon: "<red>Invalid item material name.</red>"
+  preset_not_found: "<red>Preset not found: <preset>.</red>"
+  reload: "<green>Configuration reloaded.</green>"
+  timer_already_running: "<red>A timer is already running!</red>"
+  no_active_timer: "<red>You don't have an active timer.</red>"
+  cannot_pause_timer: "<red>The timer can only be paused during work or break sessions.</red>"
+  timer_not_paused: "<red>The timer is not paused.</red>"
+
+actionbar:
+  moved_too_far: "<red>You moved too far from your starting point!</red>"
+  cant_move: "<red>You can't move while in a work session!</red>"
+  cant_teleport: "<red>You can't teleport while in a work session!</red>"
+
+ui:
+  title: "<gradient:#e65100:#f57c00><bold>Pomodoro Settings</bold></gradient>"
+  edit_title: "<gradient:#e65100:#f57c00><bold>Edit: </bold></gradient><gradient:#e65100:#f57c00><italic:false><bold><preset_name></bold></gradient>"
+  back_button: "<italic:false><red>Back</red>"
+  work_duration:
+    name: "<italic:false><gold>Work Duration</gold>"
+    lore:
+      - "<italic:false><gray>Current: <white><duration> minutes</white></gray>"
+      - ""
+      - "<italic:false><green>Left-click to add 1</green>"
+      - "<italic:false><red>Right-click to subtract 1</red>"
+      - "<italic:false><yellow>Shift+Click to adjust by 10</yellow>"
+  break_duration:
+    name: "<italic:false><aqua>Break Duration</aqua>"
+    lore:
+      - "<italic:false><gray>Current: <white><duration> minutes</white></gray>"
+      - ""
+      - "<italic:false><green>Left-click to add 1</green>"
+      - "<italic:false><red>Right-click to subtract 1</red>"
+      - "<italic:false><yellow>Shift+Click to adjust by 10</yellow>"
+  long_break_duration:
+    name: "<italic:false><#f57c00>Long Break Duration</#f57c00>"
+    lore:
+      - "<italic:false><gray>Current: <white><duration> minutes</white></gray>"
+      - ""
+      - "<italic:false><green>Left-click to add 1</green>"
+      - "<italic:false><red>Right-click to subtract 1</red>"
+      - "<italic:false><yellow>Shift+Click to adjust by 10</yellow>"
+  sessions:
+    name: "<italic:false><gold>Sessions</gold>"
+    lore:
+      - "<italic:false><gray>Current: <white><count></white></gray>"
+      - ""
+      - "<italic:false><green>Left-click to add 1</green>"
+      - "<italic:false><red>Right-click to subtract 1</red>"
+      - "<italic:false><yellow>Shift+Click to adjust by 10</yellow>"
+  create_preset:
+    name: "<italic:false><green>Create New Preset</green>"
+    lore:
+      - "<italic:false><gray>Creates a new preset with</gray>"
+      - "<italic:false><gray>default settings.</gray>"
+  rename_preset:
+    name: "<italic:false><gold>Rename Preset</gold>"
+    lore:
+      - "<italic:false><gray>Click to rename this preset.</gray>"
+  reicon_preset:
+    name: "<italic:false><aqua>Change Icon</aqua>"
+    lore:
+      - "<italic:false><gray>Click to change this preset's icon.</gray>"
+  icon_selection:
+    title: "<gradient:#e65100:#f57c00><bold>Select Icon</bold></gradient>"
+    enchant:
+      name: "<italic:false><#e040fb><bold>Toggle Enchantment</bold></#e040fb>"
+      lore:
+        - "<italic:false><gray>Current: <white><status></white></gray>"
+    enchant_status:
+      enabled: "<green>Enabled</green>"
+      disabled: "<red>Disabled</red>"
+    custom_id:
+      name: "<italic:false><gold>Custom Material</gold>"
+      lore:
+        - "<italic:false><gray>Click to type a material name.</gray>"
+  player_preset:
+    lore:
+      - "<italic:false><gray>Work: <white><work> min</white></gray>"
+      - "<italic:false><gray>Break: <white><break> min</white></gray>"
+      - "<italic:false><gray>Long Break: <white><long_break> min</white></gray>"
+      - "<italic:false><gray>Sessions: <white><sessions></white></gray>"
+      - ""
+      - "<italic:false><green>Left-click to apply</green>"
+      - "<italic:false><yellow>Right-click to edit</yellow>"
+      - "<italic:false><red>Shift + Right-click to delete</red>"
+  player_stats:
+    lore:
+      - "<italic:false><gray>Total Focus Time:</gray>"
+      - "<italic:false><white><total_focus_time></white>"
+      - ""
+      - "<italic:false><gray>Completed Work Sessions: <white><total_work_sessions></white></gray>"
+  timer:
+    title: "<gradient:#e65100:#f57c00><bold>Pomodoro Timer</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Status: <white><status></white></gold>"
+      lore:
+        - "<italic:false><gray>Time Left: <white><time></white></gray>"
+    pause:
+      name: "<italic:false><red>Pause</red>"
+      lore:
+        - "<italic:false><gray>Click to pause the timer.</gray>"
+    resume:
+      name: "<italic:false><green>Resume</green>"
+      lore:
+        - "<italic:false><gray>Click to resume the timer.</gray>"
+    stop:
+      name: "<italic:false><dark_red>Stop</dark_red>"
+      lore:
+        - "<italic:false><gray>Click to stop the timer.</gray>"
+
+  pomodoro_introduction:
+    name: "<italic:false><gold>How to use Pomodoro?</gold>"
+    lore:
+      - "<italic:false><gray>The Pomodoro Technique helps you focus and avoid burnout.</gray>"
+      - ""
+      - "<italic:false><white>How it works:</white>"
+      - "<italic:false><gray>1. <aqua>Choose a preset</aqua> on the left.</gray>"
+      - "<italic:false><gray>2. The timer starts a <gold>Work</gold> session.</gray>"
+      - "<italic:false><gray>3. Focus on your task until the timer rings.</gray>"
+      - "<italic:false><gray>4. Take a short <green>Break</green>.</gray>"
+      - "<italic:false><gray>5. After a few sessions, take a <blue>Long Break</blue>.</gray>"
+      - "<italic:false><gray>6. The process then repeats from step 2.</gray>"
+      - ""
+      - "<italic:false><yellow>Click a preset to start your first session!</yellow>"
+
+bossbar:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+
+text-display:
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"
+
+status:
+  work: "Work"
+  break: "Break"
+  long_break: "Long Break"
+  paused: "Paused"
+  stopped: "Stopped"
