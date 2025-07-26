@@ -1,5 +1,6 @@
 package org.encinet.pomodoro.config.impl;
 
+import org.bukkit.boss.BarColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.encinet.pomodoro.config.AbstractConfig;
 import org.encinet.pomodoro.config.annotations.ConfigFile;
@@ -45,6 +46,11 @@ public class PomodoroConfig extends AbstractConfig {
     private final Sound soundNewRoundStart;
     private final Sound soundSessionFail;
 
+    private final BarColor workColor;
+    private final BarColor breakColor;
+    private final BarColor longBreakColor;
+    private final BarColor pausedColor;
+
     public PomodoroConfig(YamlConfiguration config, Logger logger) {
         super(config, logger);
         this.soundUiClick = loadSound(config, "ui-click", "ui.button.click", 1.0f, 1.0f);
@@ -57,6 +63,11 @@ public class PomodoroConfig extends AbstractConfig {
         this.soundCompleteAllRounds = loadSound(config, "complete-all-rounds", "entity.firework_rocket.launch", 1.0f, 1.0f);
         this.soundNewRoundStart = loadSound(config, "new-round-start", "block.bell.use", 1.0f, 1.0f);
         this.soundSessionFail = loadSound(config, "session-fail", "entity.villager.no", 10.0f, 1.0f);
+
+        this.workColor = loadBarColor(config, "work", BarColor.GREEN);
+        this.breakColor = loadBarColor(config, "break", BarColor.BLUE);
+        this.longBreakColor = loadBarColor(config, "long-break", BarColor.YELLOW);
+        this.pausedColor = loadBarColor(config, "paused", BarColor.RED);
     }
 
     public boolean isAllowChat() {
@@ -98,10 +109,24 @@ public class PomodoroConfig extends AbstractConfig {
     public Sound getSoundNewRoundStart() { return soundNewRoundStart; }
     public Sound getSoundSessionFail() { return soundSessionFail; }
 
+    public BarColor getWorkColor() { return workColor; }
+    public BarColor getBreakColor() { return breakColor; }
+    public BarColor getLongBreakColor() { return longBreakColor; }
+    public BarColor getPausedColor() { return pausedColor; }
+
     private Sound loadSound(YamlConfiguration config, String key, String defaultName, float defaultVolume, float defaultPitch) {
         String name = config.getString("sounds." + key + ".name", defaultName);
         float volume = (float) config.getDouble("sounds." + key + ".volume", defaultVolume);
         float pitch = (float) config.getDouble("sounds." + key + ".pitch", defaultPitch);
         return new Sound(name, volume, pitch);
+    }
+
+    private BarColor loadBarColor(YamlConfiguration config, String key, BarColor defaultColor) {
+        String colorName = config.getString("bossbar-colors." + key, defaultColor.name());
+        try {
+            return BarColor.valueOf(colorName.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            return defaultColor;
+        }
     }
 }

@@ -8,12 +8,12 @@ import com.github.retrooper.packetevents.protocol.packettype.PacketType;
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerEntityMetadata;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
-import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BossBar;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TextDisplay;
 import org.encinet.pomodoro.Pomodoro;
 import org.encinet.pomodoro.config.LanguageManager;
+import org.encinet.pomodoro.config.impl.PomodoroConfig;
 import org.encinet.pomodoro.service.session.PomodoroSession;
 import org.encinet.pomodoro.service.session.PomodoroState;
 
@@ -54,43 +54,32 @@ public class PomodoroVisuals {
                 "time", time
         ))));
 
+        PomodoroConfig config = Pomodoro.getInstance().getConfigManager().getConfig(PomodoroConfig.class);
+
         double totalDuration;
-        PomodoroState state = session.getState();
-        if (state == PomodoroState.PAUSED) {
-            state = session.getPreviousState();
+        PomodoroState currentState = session.getState();
+        PomodoroState displayState = currentState == PomodoroState.PAUSED ? session.getPreviousState() : currentState;
+
+        switch (displayState) {
+            case WORK -> {
+                totalDuration = session.getWorkDuration();
+                bossBar.setColor(config.getWorkColor());
+            }
+            case BREAK -> {
+                totalDuration = session.getBreakDuration();
+                bossBar.setColor(config.getBreakColor());
+            }
+            case LONG_BREAK -> {
+                totalDuration = session.getLongBreakDuration();
+                bossBar.setColor(config.getLongBreakColor());
+            }
+            default -> totalDuration = 1; // Avoid division by zero
         }
 
-        switch (state) {
-            case WORK:
-                totalDuration = session.getWorkDuration();
-                bossBar.setColor(BarColor.GREEN);
-                break;
-            case BREAK:
-                totalDuration = session.getBreakDuration();
-                bossBar.setColor(BarColor.BLUE);
-                break;
-            case LONG_BREAK:
-                totalDuration = session.getLongBreakDuration();
-                bossBar.setColor(BarColor.YELLOW);
-                break;
-            case PAUSED:
-                bossBar.setColor(BarColor.RED);
-                // Get duration from previous state
-                PomodoroState prevState = session.getPreviousState();
-                if (prevState == PomodoroState.WORK) {
-                    totalDuration = session.getWorkDuration();
-                } else if (prevState == PomodoroState.BREAK) {
-                    totalDuration = session.getBreakDuration();
-                } else if (prevState == PomodoroState.LONG_BREAK) {
-                    totalDuration = session.getLongBreakDuration();
-                } else {
-                    totalDuration = 1;
-                }
-                break;
-            default:
-                totalDuration = 1; // Avoid division by zero
-                break;
+        if (currentState == PomodoroState.PAUSED) {
+            bossBar.setColor(config.getPausedColor());
         }
+
         double progress = (totalDuration > 0) ? (double) session.getTimeLeft() / totalDuration : 0;
         bossBar.setProgress(Math.max(0, Math.min(1, progress)));
     }
