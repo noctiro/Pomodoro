@@ -5,7 +5,7 @@ A highly customizable, GUI-driven Pomodoro timer to help players manage their ti
 ## Requirements
 
 - **Server Version**: Paper 1.21+
-- **Dependencies**: [PacketEvents](https://www.spigotmc.org/resources/packetevents.99489/) (Required)
+- **Dependencies**: [PacketEvents](https://modrinth.com/plugin/packetevents) (Required)
 
 ## How to Use
 
