@@ -143,7 +143,6 @@ public class PomodoroCommand {
 
     private static LiteralArgumentBuilder<CommandSourceStack> buildGuiCommand() {
         return Commands.literal("gui")
-                .requires(playerPredicate(player -> player.hasPermission("pomodoro.admin")))
                 .executes(playerExecutor(UI_MANAGER::openPresetMainUI));
     }
 

@@ -1,88 +1,105 @@
-# IMPORTANT: Do not change this value. It is used for automatic updates.
+# --- General Plugin Configuration ---
+# IMPORTANT: Do not change this value. It is used for automatic configuration updates.
 config-version: 2
 
+# --- Session Restrictions ---
+# Configure what players can and cannot do during a work session.
 restrictions:
+  # Allow players to use chat during a work session.
   allow-chat: true
-  # Whether to completely restrict player movement during work sessions.
-  # If set to true, players will not be able to move at all.
-  # If set to false, players can move within the max-distance.
+  # If true, players will be completely frozen in place during a work session.
+  # If false, players can move within the 'max-distance' radius.
   restrict-movement: false
+  # The maximum distance (in blocks) a player can move from their starting location
+  # during a work session if 'restrict-movement' is false.
   max-distance: 10
-  # Delay in milliseconds before pulling the player back if they move too far.
+  # The delay (in milliseconds) before pulling a player back if they move too far.
+  # This gives them a moment to return on their own.
   pull-back-delay: 2000
 
-# Default display settings for new sessions.
-# Players can toggle these visuals on or off in the timer UI.
+# --- Visual Display Settings ---
+# Configure the default visual elements for Pomodoro sessions.
 display-defaults:
+  # If true, the Boss Bar timer will be shown by default.
+  # Players can toggle this individually in the timer UI.
   bossbar: true
+  # If true, the on-screen Title timer will be shown by default.
+  # Players can toggle this individually in the timer UI.
   title: true
 
+# Settings for the floating text display that shows the timer above the player's head.
 text-display:
+  # The vertical offset (in blocks) for the floating timer text above the player.
   offset-y: 2.4
 
+# --- Language Settings ---
 language:
-  # The default language to use when the client language cannot be obtained or the corresponding language file does not exist.
+  # The default language to use if a player's client language is not available.
+  # Use standard language codes (e.g., "en", "zh_CN", "es").
   default-language: "en"
-  # Whether to adapt to the client language.
-  # If true, the client language will be used.
-  # If the corresponding language file does not exist, it will fall back to the default language.
+  # If true, the plugin will attempt to use the player's Minecraft client language.
+  # If a message file for their language doesn't exist, it will fall back to 'default-language'.
   adaptive-language: true
 
-# Boss bar colors for different states
+# --- Boss Bar Colors ---
+# Define the color of the Boss Bar for each session state.
+# Valid colors: BLUE, GREEN, PINK, PURPLE, RED, WHITE, YELLOW
 bossbar-colors:
   work: "GREEN"
   break: "BLUE"
   long-break: "YELLOW"
   paused: "RED"
 
-# Sound effects configuration
+# --- Sound Effects Configuration ---
+# Customize the sounds for various plugin events.
+# You can find a list of valid sound names here: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Sound.html
 sounds:
-  # Sound for UI clicks
+  # Sound played when a player clicks a button in the UI.
   ui-click:
     name: "ui.button.click"
     volume: 1.0
     pitch: 1.0
-  # Sound for timer end warning
+  # Sound played as a warning shortly before a timer ends.
   timer-end-warning:
     name: "block.note_block.hat"
     volume: 20.0
     pitch: 1.0
-  # Sound for next cycle
+  # Sound played when a new cycle (e.g., work to break) begins.
   next-cycle:
     name: "entity.player.levelup"
     volume: 5.0
     pitch: 1.0
-  # Sound for leave warning
+  # Sound played to warn a player they are leaving the allowed area.
   leave-warning:
     name: "entity.villager.no"
     volume: 1.0
     pitch: 1.0
-  # Sound for UI success
+  # Sound played for a successful action in the UI (e.g., creating a preset).
   ui-success:
     name: "entity.experience_orb.pickup"
     volume: 1.0
     pitch: 1.0
-  # Sound for UI fail
+  # Sound played for a failed action in the UI.
   ui-fail:
     name: "entity.villager.no"
     volume: 1.0
     pitch: 1.0
-  # Sound for UI back
+  # Sound played when going back in the UI menu.
   ui-back:
     name: "ui.button.click"
     volume: 1.0
     pitch: 1.0
-  # Sound for completing all rounds
+  # Sound played upon completing all scheduled Pomodoro rounds in a preset.
   complete-all-rounds:
     name: "entity.firework_rocket.launch"
     volume: 20.0
     pitch: 1.0
-  # Sound for starting a new round
+  # Sound played at the very start of a new round.
   new-round-start:
     name: "block.bell.use"
     volume: 1.0
     pitch: 1.0
-  # Sound for session failure
+  # Sound played if a session fails (e.g., player logs out).
   session-fail:
     name: "entity.villager.no"
     volume: 1.0
