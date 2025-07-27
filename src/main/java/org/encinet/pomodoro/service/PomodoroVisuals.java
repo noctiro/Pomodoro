@@ -61,7 +61,7 @@ public class PomodoroVisuals {
     private void updateBossBar(Player player, PomodoroSession session) {
         int totalSeconds;
         if (session.getState() == PomodoroState.WORK_COMPLETED) {
-            totalSeconds = session.getExtraTime();
+            totalSeconds = session.getWorkDuration() + session.getExtraTime();
         } else {
             totalSeconds = session.getTimeLeft();
         }
@@ -119,8 +119,14 @@ public class PomodoroVisuals {
     }
 
     private void updateTitle(Player player, PomodoroSession session) {
-        int minutes = session.getTimeLeft() / 60;
-        int seconds = session.getTimeLeft() % 60;
+        int totalSeconds;
+        if (session.getState() == PomodoroState.WORK_COMPLETED) {
+            totalSeconds = session.getWorkDuration() + session.getExtraTime();
+        } else {
+            totalSeconds = session.getTimeLeft();
+        }
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
         String time = String.format("%02d:%02d", minutes, seconds);
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
         String status = languageManager.getStatusMessage(session.getState(), player);
@@ -144,8 +150,14 @@ public class PomodoroVisuals {
         if (session == null)
             return;
 
-        int minutes = session.getTimeLeft() / 60;
-        int seconds = session.getTimeLeft() % 60;
+        int totalSeconds;
+        if (session.getState() == PomodoroState.WORK_COMPLETED) {
+            totalSeconds = session.getWorkDuration() + session.getExtraTime();
+        } else {
+            totalSeconds = session.getTimeLeft();
+        }
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
         String time = String.format("%02d:%02d", minutes, seconds);
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
         String status = languageManager.getStatusMessage(session.getState(), owner);
@@ -187,8 +199,14 @@ public class PomodoroVisuals {
                     .findFirst();
 
             if (textDataOptional.isPresent()) {
-                int minutes = session.getTimeLeft() / 60;
-                int seconds = session.getTimeLeft() % 60;
+                int totalSeconds;
+                if (session.getState() == PomodoroState.WORK_COMPLETED) {
+                    totalSeconds = session.getWorkDuration() + session.getExtraTime();
+                } else {
+                    totalSeconds = session.getTimeLeft();
+                }
+                int minutes = totalSeconds / 60;
+                int seconds = totalSeconds % 60;
                 String time = String.format("%02d:%02d", minutes, seconds);
                 LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
                 String status = languageManager.getStatusMessage(session.getState(), player);

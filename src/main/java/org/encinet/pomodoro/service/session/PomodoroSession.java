@@ -50,6 +50,11 @@ public class PomodoroSession {
 
     public void setState(PomodoroState newState, Player player, boolean isResuming) {
         if (this.state != newState) {
+            // Call onExit for the old state before changing it
+            if (this.state != null && this.state.getHandler() != null) {
+                this.state.getHandler().onExit(this, player);
+            }
+
             this.state = newState;
             this.state.getHandler().onEnter(this, player, isResuming);
 

@@ -43,6 +43,17 @@ public interface PomodoroStateHandler {
     void onEnter(PomodoroSession session, Player player, boolean isResuming);
 
     /**
+     * Called when the session exits this state.
+     * Use this to clean up or save data before transitioning to a new state.
+     *
+     * @param session The current Pomodoro session context.
+     * @param player  The player associated with the session.
+     */
+    default void onExit(PomodoroSession session, Player player) {
+        // Default implementation does nothing.
+    }
+
+    /**
      * Gets the enum type corresponding to this state handler.
      *
      * @return The {@link PomodoroState} enum value.

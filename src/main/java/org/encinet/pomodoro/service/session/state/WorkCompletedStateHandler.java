@@ -28,4 +28,10 @@ public class WorkCompletedStateHandler implements PomodoroStateHandler {
     public PomodoroState getState() {
         return PomodoroState.WORK_COMPLETED;
     }
+
+    @Override
+    public void onExit(PomodoroSession session, Player player) {
+        int totalFocusTime = session.getWorkDuration() + session.getExtraTime();
+        Pomodoro.getInstance().getDatabaseManager().addWorkSession(player.getUniqueId(), totalFocusTime);
+    }
 }
