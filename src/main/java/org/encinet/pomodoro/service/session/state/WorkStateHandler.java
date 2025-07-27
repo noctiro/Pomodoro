@@ -14,12 +14,7 @@ public class WorkStateHandler implements PomodoroStateHandler {
             Pomodoro.getInstance().getSoundManager().playNextCycleSound(player);
             Pomodoro.getInstance().getDatabaseManager().addWorkSession(player.getUniqueId(), session.getWorkDuration());
 
-            if (session.getCurrentSession() >= session.getSessions()) {
-                session.setState(PomodoroState.LONG_BREAK, player);
-            } else {
-                session.setCurrentSession(session.getCurrentSession() + 1);
-                session.setState(PomodoroState.BREAK, player);
-            }
+            session.setState(PomodoroState.WORK_COMPLETED, player);
         } else if (session.getTimeLeft() <= 5) {
             Pomodoro.getInstance().getSoundManager().playTimerEndWarningSound(player);
         }

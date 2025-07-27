@@ -199,4 +199,27 @@ public class LanguageManager {
                 .toArray(TagResolver[]::new);
         sendActionBar(player, key, resolvers);
     }
+
+    public String formatTime(int totalSeconds, String locale) {
+        if (totalSeconds < 0) {
+            totalSeconds = 0;
+        }
+        long minutes = totalSeconds / 60;
+        long seconds = totalSeconds % 60;
+
+        String minuteUnit = getMessageForLocale("time_units.minutes", locale);
+        String secondUnit = getMessageForLocale("time_units.seconds", locale);
+
+        if (minuteUnit == null) minuteUnit = "min";
+        if (secondUnit == null) secondUnit = "s";
+
+
+        if (minutes > 0 && seconds > 0) {
+            return String.format("%d %s %d %s", minutes, minuteUnit, seconds, secondUnit);
+        } else if (minutes > 0) {
+            return String.format("%d %s", minutes, minuteUnit);
+        } else {
+            return String.format("%d %s", seconds, secondUnit);
+        }
+    }
 }

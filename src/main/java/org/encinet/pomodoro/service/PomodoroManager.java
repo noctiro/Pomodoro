@@ -87,6 +87,18 @@ public class PomodoroManager {
         }
     }
 
+    public void nextState(Player player) {
+        PomodoroSession session = getSession(player);
+        if (session != null && session.getState() == PomodoroState.WORK_COMPLETED) {
+            if (session.getCurrentSession() >= session.getSessions()) {
+                session.setState(PomodoroState.LONG_BREAK, player);
+            } else {
+                session.setCurrentSession(session.getCurrentSession() + 1);
+                session.setState(PomodoroState.BREAK, player);
+            }
+        }
+    }
+
     private void tick(Player player) {
         PomodoroSession session = getSession(player);
         if (session == null) {
@@ -103,7 +115,9 @@ public class PomodoroManager {
         }
 
         visuals.update(player);
-        TimerUI.update(player, this);
+        if (session.getState() != PomodoroState.WORK_COMPLETED) {
+            TimerUI.update(player, this);
+        }
     }
 
     public PomodoroSession getSession(Player player) {

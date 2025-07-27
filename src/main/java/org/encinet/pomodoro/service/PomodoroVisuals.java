@@ -59,8 +59,14 @@ public class PomodoroVisuals {
     }
 
     private void updateBossBar(Player player, PomodoroSession session) {
-        int minutes = session.getTimeLeft() / 60;
-        int seconds = session.getTimeLeft() % 60;
+        int totalSeconds;
+        if (session.getState() == PomodoroState.WORK_COMPLETED) {
+            totalSeconds = session.getExtraTime();
+        } else {
+            totalSeconds = session.getTimeLeft();
+        }
+        int minutes = totalSeconds / 60;
+        int seconds = totalSeconds % 60;
         String time = String.format("%02d:%02d", minutes, seconds);
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
         String status = languageManager.getStatusMessage(session.getState(), player);
@@ -81,26 +87,34 @@ public class PomodoroVisuals {
         PomodoroState displayState = currentState == PomodoroState.PAUSED ? session.getPreviousState() : currentState;
 
         switch (displayState) {
-            case WORK -> {
+            case WORK:
+            case WORK_COMPLETED:
                 totalDuration = session.getWorkDuration();
                 bossBar.setColor(config.getWorkColor());
-            }
-            case BREAK -> {
+                break;
+            case BREAK:
                 totalDuration = session.getBreakDuration();
                 bossBar.setColor(config.getBreakColor());
-            }
-            case LONG_BREAK -> {
+                break;
+            case LONG_BREAK:
                 totalDuration = session.getLongBreakDuration();
                 bossBar.setColor(config.getLongBreakColor());
-            }
-            default -> totalDuration = 1; // Avoid division by zero
+                break;
+            default:
+                totalDuration = 1; // Avoid division by zero
+                break;
         }
 
         if (currentState == PomodoroState.PAUSED) {
             bossBar.setColor(config.getPausedColor());
         }
 
-        double progress = (totalDuration > 0) ? (double) session.getTimeLeft() / totalDuration : 0;
+        double progress;
+        if (currentState == PomodoroState.WORK_COMPLETED) {
+            progress = 1.0;
+        } else {
+            progress = (totalDuration > 0) ? (double) session.getTimeLeft() / totalDuration : 0;
+        }
         bossBar.setProgress(Math.max(0, Math.min(1, progress)));
     }
 

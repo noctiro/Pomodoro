@@ -33,8 +33,9 @@ public class UIListener implements Listener {
                 .serialize(languageManager.getMessage(player, "ui.edit_title", Map.of("preset_name", "")))
                 .split(":")[0];
         String iconTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.icon_selection.title"));
+        String workCompletedTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.work_completed.title"));
 
-        boolean isPomodoroUi = title.equals(uiTitle) || title.startsWith(editTitlePrefix) || title.equals(iconTitle);
+        boolean isPomodoroUi = title.equals(uiTitle) || title.startsWith(editTitlePrefix) || title.equals(iconTitle) || title.equals(workCompletedTitle);
 
         if (!isPomodoroUi) {
             return;
@@ -56,6 +57,8 @@ public class UIListener implements Listener {
             handlePresetEditing(event);
         } else if (title.equals(iconTitle)) {
             handleIconSelection(event);
+        } else if (title.equals(workCompletedTitle)) {
+            handleWorkCompletedClick(event);
         }
     }
 
@@ -238,6 +241,35 @@ public class UIListener implements Listener {
                 return;
         }
         Pomodoro.getInstance().getUiManager().openPresetEditingUI(player, presetKey); // Refresh
+    }
+
+    private void handleWorkCompletedClick(InventoryClickEvent event) {
+        Player player = (Player) event.getWhoClicked();
+        ItemStack clickedItem = event.getCurrentItem();
+        if (clickedItem == null || !clickedItem.hasItemMeta())
+            return;
+
+        String action = clickedItem.getItemMeta().getPersistentDataContainer().get(
+                new NamespacedKey(Pomodoro.getInstance(), "pomodoro_action"),
+                PersistentDataType.STRING);
+
+        if (action == null) {
+            Pomodoro.getInstance().getSoundManager().playFailSound(player);
+            return;
+        }
+
+        switch (action) {
+            case "next_state":
+                Pomodoro.getInstance().getPomodoroManager().nextState(player);
+                player.closeInventory();
+                Pomodoro.getInstance().getSoundManager().playClickSound(player);
+                break;
+            case "stop":
+                Pomodoro.getInstance().getPomodoroManager().stop(player);
+                player.closeInventory();
+                Pomodoro.getInstance().getSoundManager().playBackSound(player);
+                break;
+        }
     }
 
     private void handleIconSelection(InventoryClickEvent event) {

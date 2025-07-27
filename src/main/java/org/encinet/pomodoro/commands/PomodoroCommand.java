@@ -38,6 +38,7 @@ public class PomodoroCommand {
                 .then(buildStopCommand())
                 .then(buildPauseCommand())
                 .then(buildResumeCommand())
+                .then(buildNextCommand())
                 .then(buildGuiCommand())
                 .then(buildReloadCommand());
         return command.build();
@@ -47,7 +48,12 @@ public class PomodoroCommand {
         if (context.getSource().getSender() instanceof Player player) {
             PomodoroSession session = POMODORO_MANAGER.getSession(player);
             if (session != null && session.getState() != PomodoroState.STOPPED) {
-                UI_MANAGER.openTimerUI(player);
+                if (session.getState() == PomodoroState.WORK_COMPLETED) {
+                    // This should be handled by a dedicated UI, but as a fallback
+                    POMODORO_MANAGER.nextState(player);
+                } else {
+                    UI_MANAGER.openTimerUI(player);
+                }
             } else {
                 UI_MANAGER.openPresetSelectionUI(player);
             }
@@ -121,6 +127,17 @@ public class PomodoroCommand {
                 .executes(playerExecutor(player -> {
                     POMODORO_MANAGER.resume(player);
                     player.sendMessage(LANG.getMessage(player, "messages.timer_resume"));
+                }));
+    }
+
+    private static LiteralArgumentBuilder<CommandSourceStack> buildNextCommand() {
+        return Commands.literal("next")
+                .requires(playerPredicate(player -> {
+                    PomodoroSession session = POMODORO_MANAGER.getSession(player);
+                    return session != null && session.getState() == PomodoroState.WORK_COMPLETED;
+                }))
+                .executes(playerExecutor(player -> {
+                    POMODORO_MANAGER.nextState(player);
                 }));
     }
 

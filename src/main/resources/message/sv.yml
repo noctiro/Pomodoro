@@ -9,6 +9,7 @@ messages:
   work_start: "<gold>Dags att fokusera! Arbetspasset har börjat.</gold>"
   break_start: "<aqua>Dags för en paus! Du har förtjänat det.</aqua>"
   long_break_start: "<blue>Dags för en lång paus! Bra jobbat med att slutföra dina pass.</blue>"
+  work_completed: "<green>Arbetspasset är slutfört! Bra jobbat!</green>"
   cant_chat: "<red>Du kan inte chatta under ett arbetspass!</red>"
   preset_created: "<green>Förinställningen '<preset_name>' har skapats.</green>"
   preset_renamed: "<green>Förinställningen '<old_name>' har bytt namn till '<new_name>'.</green>"
@@ -151,6 +152,17 @@ ui:
       - "<italic:false><gray>6. Processen upprepas sedan från steg 2.</gray>"
       - ""
       - "<italic:false><yellow>Klicka på en förinställning för att starta ditt första pass!</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>Arbete slutfört!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Arbetspass avslutat</gold>"
+      lore:
+        - "<italic:false><gray>Detta arbetspass var <white><work_duration></white></gray>"
+        - "<italic:false><gray>Du har fokuserat i <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>Starta paus</green>"
+      lore:
+        - "<italic:false><gray>Klicka för att starta din paus</gray>"
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
@@ -164,7 +176,12 @@ text-display:
 
 status:
   work: "Arbete"
+  work_completed: "Arbete slutfört"
   break: "Paus"
   long_break: "Lång paus"
   paused: "Pausad"
   stopped: "Stoppad"
+
+time_units:
+  minutes: "min"
+  seconds: "s"

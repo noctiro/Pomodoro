@@ -9,6 +9,7 @@ messages:
   work_start: "<gold>Time to focus! Work session has begun.</gold>"
   break_start: "<aqua>Time for a break! You've earned it.</aqua>"
   long_break_start: "<blue>Time for a long break! Great job on completing your sessions.</blue>"
+  work_completed: "<green>Work session completed! Good job!</green>"
   cant_chat: "<red>You can't chat while in a work session!</red>"
   preset_created: "<green>Preset '<preset_name>' created.</green>"
   preset_renamed: "<green>Preset '<old_name>' renamed to '<new_name>'.</green>"
@@ -152,6 +153,17 @@ ui:
       - "<italic:false><gray>6. The process then repeats from step 2.</gray>"
       - ""
       - "<italic:false><yellow>Click a preset to start your first session!</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>Work Completed!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Work Session Finished</gold>"
+      lore:
+        - "<italic:false><gray>This work session was <white><work_duration></white></gray>"
+        - "<italic:false><gray>You have focused for <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>Start Break</green>"
+      lore:
+        - "<italic:false><gray>Click to start your break</gray>"
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
@@ -165,7 +177,12 @@ text-display:
 
 status:
   work: "Work"
+  work_completed: "Work Completed"
   break: "Break"
   long_break: "Long Break"
   paused: "Paused"
   stopped: "Stopped"
+
+time_units:
+  minutes: "min"
+  seconds: "s"

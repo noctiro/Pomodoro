@@ -9,6 +9,7 @@ messages:
   work_start: "<gold>집중할 시간입니다! 작업 세션이 시작되었습니다.</gold>"
   break_start: "<aqua>휴식 시간입니다! 수고하셨습니다.</aqua>"
   long_break_start: "<blue>긴 휴식 시간입니다! 세션을 완료하신 것을 축하합니다.</blue>"
+  work_completed: "<green>작업 세션을 완료했습니다! 잘 하셨어요!</green>"
   cant_chat: "<red>작업 세션 중에는 채팅할 수 없습니다!</red>"
   preset_created: "<green>프리셋 '<preset_name>'이(가) 생성되었습니다.</green>"
   preset_renamed: "<green>프리셋 '<old_name>'의 이름이 '<new_name>'(으)로 변경되었습니다.</green>"
@@ -151,6 +152,17 @@ ui:
       - "<italic:false><gray>6. 그런 다음 2단계부터 과정이 반복됩니다.</gray>"
       - ""
       - "<italic:false><yellow>프리셋을 클릭하여 첫 세션을 시작하십시오!</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>작업 완료!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>작업 세션 종료</gold>"
+      lore:
+        - "<italic:false><gray>이 작업 세션은 <white><work_duration></white>이었습니다</gray>"
+        - "<italic:false><gray>집중 시간: <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>휴식 시작</green>"
+      lore:
+        - "<italic:false><gray>클릭하여 휴식을 시작하세요</gray>"
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
@@ -164,7 +176,12 @@ text-display:
 
 status:
   work: "작업 중"
+  work_completed: "작업 완료"
   break: "휴식 중"
   long_break: "긴 휴식 중"
   paused: "일시 중지됨"
   stopped: "중지됨"
+
+time_units:
+  minutes: "분"
+  seconds: "초"

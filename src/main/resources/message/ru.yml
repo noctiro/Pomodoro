@@ -9,6 +9,7 @@ messages:
   work_start: "<gold>Время сосредоточиться! Рабочая сессия началась.</gold>"
   break_start: "<aqua>Время для перерыва! Вы это заслужили.</aqua>"
   long_break_start: "<blue>Время для длинного перерыва! Отличная работа по завершению сессий.</blue>"
+  work_completed: "<green>Рабочая сессия завершена! Отличная работа!</green>"
   cant_chat: "<red>Вы не можете общаться во время рабочей сессии!</red>"
   preset_created: "<green>Пресет '<preset_name>' создан.</green>"
   preset_renamed: "<green>Пресет '<old_name>' переименован в '<new_name>'.</green>"
@@ -151,6 +152,17 @@ ui:
       - "<italic:false><gray>6. Затем процесс повторяется с шага 2.</gray>"
       - ""
       - "<italic:false><yellow>Нажмите на пресет, чтобы начать первую сессию!</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>Работа завершена!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Рабочая сессия окончена</gold>"
+      lore:
+        - "<italic:false><gray>Эта рабочая сессия длилась <white><work_duration></white></gray>"
+        - "<italic:false><gray>Вы были сосредоточены <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>Начать перерыв</green>"
+      lore:
+        - "<italic:false><gray>Нажмите, чтобы начать перерыв</gray>"
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
@@ -164,7 +176,12 @@ text-display:
 
 status:
   work: "Работа"
+  work_completed: "Работа завершена"
   break: "Перерыв"
   long_break: "Длинный перерыв"
   paused: "Пауза"
   stopped: "Остановлен"
+
+time_units:
+  minutes: "мин"
+  seconds: "с"

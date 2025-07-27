@@ -21,6 +21,7 @@ public class PomodoroSession {
 
     private int currentSession = 1;
     private int timeLeft;
+    private int extraTime = 0;
 
     private BossBar bossBar;
     private TextDisplay textDisplay;
@@ -154,5 +155,13 @@ public class PomodoroSession {
 
     public void setTitleEnabled(boolean titleEnabled) {
         this.titleEnabled = titleEnabled;
+    }
+
+    public int getExtraTime() {
+        return extraTime;
+    }
+
+    public void setExtraTime(int extraTime) {
+        this.extraTime = extraTime;
     }
 }

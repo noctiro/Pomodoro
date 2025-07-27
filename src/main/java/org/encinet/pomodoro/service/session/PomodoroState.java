@@ -4,6 +4,7 @@ import org.encinet.pomodoro.service.session.state.*;
 
 public enum PomodoroState {
     WORK("work", new WorkStateHandler()),
+    WORK_COMPLETED("work_completed", new WorkCompletedStateHandler()),
     BREAK("break", new BreakStateHandler()),
     LONG_BREAK("long_break", new LongBreakStateHandler()),
     PAUSED("paused", new PausedStateHandler()),

@@ -9,6 +9,7 @@ messages:
   work_start: "<gold>集中する時間です！作業セッションが開始されました。</gold>"
   break_start: "<aqua>休憩の時間です！お疲れ様でした。</aqua>"
   long_break_start: "<blue>長い休憩の時間です！セッションお疲れ様でした。</blue>"
+  work_completed: "<green>作業セッションが完了しました！お疲れ様でした！</green>"
   cant_chat: "<red>作業セッション中はチャットできません！</red>"
   preset_created: "<green>プリセット '<preset_name>' が作成されました。</green>"
   preset_renamed: "<green>プリセット '<old_name>' の名前が '<new_name>' に変更されました。</green>"
@@ -151,6 +152,17 @@ ui:
       - "<italic:false><gray>6. その後、プロセスはステップ2から繰り返されます。</gray>"
       - ""
       - "<italic:false><yellow>プリセットをクリックして最初のセッションを開始してください！</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>作業完了！</bold></gradient>"
+    status:
+      name: "<italic:false><gold>作業セッション完了</gold>"
+      lore:
+        - "<italic:false><gray>この作業セッションは<white><work_duration></white>でした</gray>"
+        - "<italic:false><gray>集中時間: <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>休憩を開始</green>"
+      lore:
+        - "<italic:false><gray>クリックして休憩を開始します</gray>"
 
 bossbar:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
@@ -164,7 +176,12 @@ text-display:
 
 status:
   work: "作業中"
+  work_completed: "作業完了"
   break: "休憩中"
   long_break: "長い休憩中"
   paused: "一時停止中"
   stopped: "停止"
+
+time_units:
+  minutes: "分"
+  seconds: "秒"
