@@ -31,8 +31,10 @@ actionbar:
   cant_teleport: "<red>专注期间禁止传送！</red>"
 
 ui:
-  title: "<gradient:#e65100:#f57c00><bold>番茄钟设置</bold></gradient>"
-  edit_title: "<gradient:#e65100:#f57c00><bold>编辑方案: </bold></gradient><gradient:#e65100:#f57c00><italic:false><bold><preset_name></bold></gradient>"
+  main:
+    title: "<gradient:#e65100:#f57c00><bold>番茄钟</bold></gradient>"
+  edit:
+    title: "<gradient:#e65100:#f57c00><bold>编辑方案</bold></gradient><gray>:</gray> <red><preset_name></red>"
   back_button: "<italic:false><red>返回</red>"
   work_duration:
     name: "<italic:false><gold>专注时长</gold>"
@@ -80,7 +82,7 @@ ui:
     lore:
       - "<italic:false><gray>单击以更改此方案的图标</gray>"
   icon_selection:
-    title: "<gradient:#e65100:#f57c00><bold>选择图标</bold></gradient>"
+    title: "<gradient:#e65100:#f57c00><bold>选择图标</bold></gradient><gray>:</gray> <red><preset_name></red>"
     enchant:
       name: "<italic:false><#e040fb><bold>切换附魔光效</bold></#e040fb>"
       lore:
@@ -109,7 +111,7 @@ ui:
       - ""
       - "<italic:false><gray>完成的专注环节: <white><total_work_sessions></white></gray>"
   timer:
-    title: "<gradient:#e65100:#f57c00><bold>番茄钟</bold></gradient>"
+    title: "<gradient:#e65100:#f57c00><bold>正在进行</bold></gradient><gray>:</gray> <red><preset_name></red>"
     status:
       name: "<italic:false><gold>状态: <white><status></white></gold>"
       lore:
@@ -126,19 +128,18 @@ ui:
       name: "<italic:false><dark_red>停止</dark_red>"
       lore:
         - "<italic:false><gray>单击停止计时器</gray>"
-    bossbar:
+    bossbar_toggle:
       name: "<italic:false><gold>Boss栏</gold>"
       lore_enabled:
         - "<italic:false><gray>单击<red>禁用</red>Boss栏</gray>"
       lore_disabled:
         - "<italic:false><gray>单击<green>启用</green>Boss栏</gray>"
-    title:
+    title_toggle:
       name: "<italic:false><gold>标题</gold>"
       lore_enabled:
         - "<italic:false><gray>单击<red>禁用</red>标题</gray>"
       lore_disabled:
         - "<italic:false><gray>单击<green>启用</green>标题</gray>"
-
   pomodoro_introduction:
     name: "<italic:false><gold>如何使用番茄钟？</gold>"
     lore:
@@ -154,7 +155,7 @@ ui:
       - ""
       - "<italic:false><yellow>点击一个方案来开始你的第一个专注环节吧！</yellow>"
   work_completed:
-    title: "<gradient:#e65100:#f57c00><bold>专注完成！</bold></gradient>"
+    title: "<gradient:#e65100:#f57c00><bold>专注完成!</bold></gradient>"
     status:
       name: "<italic:false><gold>专注环节完成</gold>"
       lore:
@@ -166,14 +167,14 @@ ui:
         - "<italic:false><gray>单击以开始你的休息时间</gray>"
 
 bossbar:
-  title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><gray>:</gray> <white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
 
 title:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
-  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
+  subtitle: "<white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
 
 text-display:
-  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <gray>-</gray> <white><status></white> <gray>-</gray> <white><time></white>"
 
 status:
   work: "专注中"

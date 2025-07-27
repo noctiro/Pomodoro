@@ -195,7 +195,7 @@ public class PlayerListener implements Listener {
                 defaultPreset.work(), defaultPreset.breakTime(), defaultPreset.longBreak(),
                 defaultPreset.sessions());
         player.sendMessage(languageManager.getMessage(player, "messages.preset_created", Map.of("preset_name", input)));
-        uiManager.openPresetSelectionUI(player);
+        uiManager.openPresetMainUI(player);
     }
 
     private void handleRenamePreset(Player player, String state, String input) {

@@ -55,7 +55,7 @@ public class PomodoroCommand {
                     UI_MANAGER.openTimerUI(player);
                 }
             } else {
-                UI_MANAGER.openPresetSelectionUI(player);
+                UI_MANAGER.openPresetMainUI(player);
             }
         }
         return Command.SINGLE_SUCCESS;
@@ -67,7 +67,7 @@ public class PomodoroCommand {
                     PomodoroSession session = POMODORO_MANAGER.getSession(player);
                     return session == null || session.getState() == PomodoroState.STOPPED;
                 }))
-                .executes(playerExecutor(player -> UI_MANAGER.openPresetSelectionUI(player)))
+                .executes(playerExecutor(player -> UI_MANAGER.openPresetMainUI(player)))
                 .then(Commands.argument("preset", StringArgumentType.string())
                         .suggests(presetSuggestionProvider())
                         .executes(playerExecutor(PomodoroCommand::executeStart)));
@@ -144,7 +144,7 @@ public class PomodoroCommand {
     private static LiteralArgumentBuilder<CommandSourceStack> buildGuiCommand() {
         return Commands.literal("gui")
                 .requires(playerPredicate(player -> player.hasPermission("pomodoro.admin")))
-                .executes(playerExecutor(UI_MANAGER::openPresetSelectionUI));
+                .executes(playerExecutor(UI_MANAGER::openPresetMainUI));
     }
 
     private static LiteralArgumentBuilder<CommandSourceStack> buildReloadCommand() {

@@ -26,7 +26,7 @@ public class PresetEditingUI {
             return null;
         }
 
-        Inventory inventory = Bukkit.createInventory(null, 36, languageManager.getMessage(player, "ui.edit_title", Map.of("preset_name", preset.name())));
+        Inventory inventory = Bukkit.createInventory(null, 36, languageManager.getMessage(player, "ui.edit.title", Map.of("preset_name", preset.name())));
         NamespacedKey presetKeyName = new NamespacedKey(Pomodoro.getInstance(), "preset_key");
         NamespacedKey actionKey = new NamespacedKey(Pomodoro.getInstance(), "pomodoro_action");
 

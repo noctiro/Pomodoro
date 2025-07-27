@@ -19,6 +19,7 @@ import org.encinet.pomodoro.ui.util.ItemBuilder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class IconSelectionUI {
     private static final List<Material> COMMON_ICONS = Arrays.asList(
@@ -44,7 +45,7 @@ public class IconSelectionUI {
             return null;
         }
 
-        Inventory inventory = Bukkit.createInventory(null, 54, languageManager.getMessage(player, "ui.icon_selection.title"));
+        Inventory inventory = Bukkit.createInventory(null, 54, languageManager.getMessage(player, "ui.icon_selection.title", Map.of("preset_name", preset.name())));
 
         // Fill border with glass panes
         ItemStack filler = ItemBuilder.createFiller();

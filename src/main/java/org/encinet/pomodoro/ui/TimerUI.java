@@ -4,10 +4,11 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+
+import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.inventory.InventoryView;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.NamespacedKey;
-import net.kyori.adventure.text.Component;
 import org.encinet.pomodoro.Pomodoro;
 import org.encinet.pomodoro.config.LanguageManager;
 import org.encinet.pomodoro.service.PomodoroManager;
@@ -25,7 +26,7 @@ public class TimerUI {
         }
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
 
-        Inventory inventory = Bukkit.createInventory(null, 27, languageManager.getMessage(player, "ui.title"));
+        Inventory inventory = Bukkit.createInventory(null, 27, languageManager.getMessage(player, "ui.timer.title", Map.of("preset_name", session.getPreset().name())));
 
         // Filler
         ItemStack filler = ItemBuilder.createFiller();
@@ -63,10 +64,10 @@ public class TimerUI {
         }
 
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
-        Component expectedTitle = languageManager.getMessage(player, "ui.title");
+        String expectedTitlePrefix = MiniMessage.miniMessage().serialize(languageManager.getMessage(player, "ui.timer.title", Map.of("preset_name", ""))).split(":")[0];
 
         InventoryView openInventory = player.getOpenInventory();
-        if (!openInventory.title().equals(expectedTitle)) {
+        if (!MiniMessage.miniMessage().serialize(openInventory.title()).startsWith(expectedTitlePrefix)) {
             return;
         }
 
@@ -127,13 +128,13 @@ public class TimerUI {
         if (type.equals("bossbar")) {
             enabled = session.isBossbarEnabled();
             material = enabled ? Material.LIME_DYE : Material.GRAY_DYE;
-            nameKey = "ui.timer.bossbar.name";
-            loreKey = enabled ? "ui.timer.bossbar.lore_enabled" : "ui.timer.bossbar.lore_disabled";
+            nameKey = "ui.timer.bossbar_toggle.name";
+            loreKey = enabled ? "ui.timer.bossbar_toggle.lore_enabled" : "ui.timer.bossbar_toggle.lore_disabled";
         } else {
             enabled = session.isTitleEnabled();
             material = enabled ? Material.LIME_DYE : Material.GRAY_DYE;
-            nameKey = "ui.timer.title.name";
-            loreKey = enabled ? "ui.timer.title.lore_enabled" : "ui.timer.title.lore_disabled";
+            nameKey = "ui.timer.title_toggle.name";
+            loreKey = enabled ? "ui.timer.title_toggle.lore_enabled" : "ui.timer.title_toggle.lore_disabled";
         }
 
         return new ItemBuilder(material)

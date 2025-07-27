@@ -28,36 +28,28 @@ public class UIListener implements Listener {
         String title = miniMessage.serialize(titleComponent);
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
 
-        String uiTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.title"));
-        String editTitlePrefix = miniMessage
-                .serialize(languageManager.getMessage(player, "ui.edit_title", Map.of("preset_name", "")))
-                .split(":")[0];
-        String iconTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.icon_selection.title"));
+        // Get base titles for comparison
+        String mainTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.main.title"));
+        String timerTitlePrefix = miniMessage.serialize(languageManager.getMessage(player, "ui.timer.title", Map.of("preset_name", ""))).split(":")[0];
+        String editTitlePrefix = miniMessage.serialize(languageManager.getMessage(player, "ui.edit.title", Map.of("preset_name", ""))).split(":")[0];
+        String iconTitlePrefix = miniMessage.serialize(languageManager.getMessage(player, "ui.icon_selection.title", Map.of("preset_name", ""))).split(":")[0];
         String workCompletedTitle = miniMessage.serialize(languageManager.getMessage(player, "ui.work_completed.title"));
 
-        boolean isPomodoroUi = title.equals(uiTitle) || title.startsWith(editTitlePrefix) || title.equals(iconTitle) || title.equals(workCompletedTitle);
-
-        if (!isPomodoroUi) {
-            return;
-        }
-
-        event.setCancelled(true);
-
-        if (event.getClickedInventory() != event.getView().getTopInventory()) {
-            return;
-        }
-        if (title.equals(uiTitle)) {
-            // Distinguish between PresetSelectionUI (54) and TimerUI (27)
-            if (event.getClickedInventory().getSize() == 27) {
-                handleTimerClick(event);
-            } else {
-                handlePresetSelection(event);
-            }
+        // Determine which UI is open
+        if (title.equals(mainTitle)) {
+            event.setCancelled(true);
+            handlePresetMainClick(event);
+        } else if (title.startsWith(timerTitlePrefix)) {
+            event.setCancelled(true);
+            handleTimerClick(event);
         } else if (title.startsWith(editTitlePrefix)) {
+            event.setCancelled(true);
             handlePresetEditing(event);
-        } else if (title.equals(iconTitle)) {
+        } else if (title.startsWith(iconTitlePrefix)) {
+            event.setCancelled(true);
             handleIconSelection(event);
         } else if (title.equals(workCompletedTitle)) {
+            event.setCancelled(true);
             handleWorkCompletedClick(event);
         }
     }
@@ -115,7 +107,7 @@ public class UIListener implements Listener {
         Pomodoro.getInstance().getUiManager().openTimerUI(player); // Refresh
     }
 
-    private void handlePresetSelection(InventoryClickEvent event) {
+    private void handlePresetMainClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         int slot = event.getSlot();
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
@@ -161,7 +153,7 @@ public class UIListener implements Listener {
                     player.sendMessage(languageManager.getMessage(player, "messages.preset_removed",
                             Map.of("preset_name", preset.name())));
                     Pomodoro.getInstance().getSoundManager().playSuccessSound(player);
-                    Pomodoro.getInstance().getUiManager().openPresetSelectionUI(player); // Refresh
+                    Pomodoro.getInstance().getUiManager().openPresetMainUI(player); // Refresh
                 } else {
                     // Edit
                     playerPresetManager.ensurePlayerOwnsPreset(player, presetKey);
@@ -236,7 +228,7 @@ public class UIListener implements Listener {
                 Pomodoro.getInstance().getUiManager().openIconSelectionUI(player, presetKey);
                 return;
             case "back":
-                Pomodoro.getInstance().getUiManager().openPresetSelectionUI(player);
+                Pomodoro.getInstance().getUiManager().openPresetMainUI(player);
                 Pomodoro.getInstance().getSoundManager().playBackSound(player);
                 return;
         }

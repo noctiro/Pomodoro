@@ -5,8 +5,8 @@ import org.bukkit.inventory.Inventory;
 import org.encinet.pomodoro.Pomodoro;
 
 public class UIManager {
-    public void openPresetSelectionUI(Player player) {
-        Inventory inventory = PresetSelectionUI.create(player);
+    public void openPresetMainUI(Player player) {
+        Inventory inventory = PresetMainUI.create(player);
         Bukkit.getScheduler().runTask(Pomodoro.getInstance(), () -> player.openInventory(inventory));
     }
 

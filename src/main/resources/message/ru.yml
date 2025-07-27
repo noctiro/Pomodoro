@@ -31,8 +31,10 @@ actionbar:
   cant_teleport: "<red>Вы не можете телепортироваться во время рабочей сессии!</red>"
 
 ui:
-  title: "<gradient:#e65100:#f57c00><bold>Настройки Pomodoro</bold></gradient>"
-  edit_title: "<gradient:#e65100:#f57c00><bold>Редактировать: </bold></gradient><gradient:#e65100:#f57c00><italic:false><bold><preset_name></bold></gradient>"
+  main:
+    title: "<gradient:#e65100:#f57c00><bold>Pomodoro</bold></gradient>"
+  edit:
+    title: "<gradient:#e65100:#f57c00><bold>Редактирование</bold></gradient><gray>:</gray> <red><preset_name></red>"
   back_button: "<italic:false><red>Назад</red>"
   work_duration:
     name: "<italic:false><gold>Продолжительность работы</gold>"
@@ -80,7 +82,7 @@ ui:
     lore:
       - "<italic:false><gray>Нажмите, чтобы изменить иконку этого пресета.</gray>"
   icon_selection:
-    title: "<gradient:#e65100:#f57c00><bold>Выберите иконку</bold></gradient>"
+    title: "<gradient:#e65100:#f57c00><bold>Выберите иконку</bold></gradient><gray>:</gray> <red><preset_name></red>"
     enchant:
       name: "<italic:false><#e040fb><bold>Переключить зачарование</bold></#e040fb>"
       lore:
@@ -109,7 +111,7 @@ ui:
       - ""
       - "<italic:false><gray>Завершенные рабочие сессии: <white><total_work_sessions></white></gray>"
   timer:
-    title: "<gradient:#e65100:#f57c00><bold>Таймер Pomodoro</bold></gradient>"
+    title: "<gradient:#e65100:#f57c00><bold>Выполняется</bold></gradient><gray>:</gray> <red><preset_name></red>"
     status:
       name: "<italic:false><gold>Статус: <white><status></white></gold>"
       lore:
@@ -126,13 +128,13 @@ ui:
       name: "<italic:false><dark_red>Стоп</dark_red>"
       lore:
         - "<italic:false><gray>Нажмите, чтобы остановить таймер.</gray>"
-    bossbar:
+    bossbar_toggle:
       name: "<italic:false><gold>Боссбар</gold>"
       lore_enabled:
         - "<italic:false><gray>Нажмите, чтобы <red>отключить</red> боссбар.</gray>"
       lore_disabled:
         - "<italic:false><gray>Нажмите, чтобы <green>включить</green> боссбар.</gray>"
-    title:
+    title_toggle:
       name: "<italic:false><gold>Заголовок</gold>"
       lore_enabled:
         - "<italic:false><gray>Нажмите, чтобы <red>отключить</red> заголовок.</gray>"
@@ -165,14 +167,14 @@ ui:
         - "<italic:false><gray>Нажмите, чтобы начать перерыв</gray>"
 
 bossbar:
-  title: "<gradient:#e65100:#f57c00><preset_name></gradient><white>: <status> | <current_session>/<total_sessions> | <time></white>"
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><gray>:</gray> <white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
 
 title:
   title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
-  subtitle: "<white><status> | <current_session>/<total_sessions> | <time></white>"
+  subtitle: "<white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
 
 text-display:
-  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <white>- <status> - <time></white>"
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <gray>-</gray> <white><status></white> <gray>-</gray> <white><time></white>"
 
 status:
   work: "Работа"

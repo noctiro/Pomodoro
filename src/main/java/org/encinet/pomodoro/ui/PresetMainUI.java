@@ -19,16 +19,21 @@ import org.encinet.pomodoro.ui.util.ItemBuilder;
 
 import java.util.Map;
 
-public class PresetSelectionUI {
+public class PresetMainUI {
     public static Inventory create(Player player) {
         LanguageManager languageManager = Pomodoro.getInstance().getLanguageManager();
-        Inventory inventory = Bukkit.createInventory(null, 54, languageManager.getMessage(player, "ui.title"));
+        Inventory inventory = Bukkit.createInventory(null, 54, languageManager.getMessage(player, "ui.main.title"));
         MiniMessage miniMessage = MiniMessage.miniMessage();
 
         // Fill empty slots with glass panes
         ItemStack filler = ItemBuilder.createFiller();
+        int rows = inventory.getSize() / 9;
         for (int i = 0; i < inventory.getSize(); i++) {
-            inventory.setItem(i, filler);
+            int row = i / 9;
+            int col = i % 9;
+            if (row == 0 || row == rows - 1 || col == 0 || col == 8) {
+                inventory.setItem(i, filler);
+            }
         }
 
         // Player Stats Head
@@ -44,8 +49,7 @@ public class PresetSelectionUI {
                 .displayName(miniMessage.deserialize("<italic:false><green>" + player.getName()))
                 .lore(languageManager.getMessageList(player, "ui.player_stats.lore", Map.of(
                         "total_focus_time", formattedTime,
-                        "total_work_sessions", String.valueOf(stats.getTotalWorkSessions())
-                )))
+                        "total_work_sessions", String.valueOf(stats.getTotalWorkSessions()))))
                 .build();
         SkullMeta skullMeta = (SkullMeta) playerHead.getItemMeta();
         if (skullMeta != null) {

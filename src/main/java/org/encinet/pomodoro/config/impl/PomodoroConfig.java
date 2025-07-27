@@ -24,7 +24,7 @@ public class PomodoroConfig extends AbstractConfig {
     private int maxDistance = 10;
 
     @ConfigValue("restrictions.pull-back-delay")
-    private int pullBackDelay = 3000;
+    private int pullBackDelay = 2000;
 
     @ConfigValue("text-display.offset-y")
     private double textDisplayOffsetY = 1.8;
