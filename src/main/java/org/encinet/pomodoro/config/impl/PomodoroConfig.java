@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 /**
  * Configuration class for pomodoro timer settings
  */
-@ConfigFile(name = "config.yml", version = 2)
+@ConfigFile(name = "config.yml", version = 1)
 public class PomodoroConfig extends AbstractConfig {
     public record Sound(String name, float volume, float pitch) {}
     @ConfigValue("restrictions.allow-chat")

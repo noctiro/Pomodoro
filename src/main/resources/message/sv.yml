@@ -3,27 +3,28 @@ config-version: 1
 
 messages:
   timer_start: "<green>Pomodoro-timern har startat med förinställningen: <preset>!</green>"
-  timer_stop: "<red>Pomodoro-timern har stoppats.</red>"
-  timer_pause: "<yellow>Pomodoro-timern har pausats.</yellow>"
-  timer_resume: "<green>Pomodoro-timern har återupptagits.</green>"
-  work_start: "<gold>Dags att fokusera! Arbetspasset har börjat.</gold>"
-  break_start: "<aqua>Dags för en paus! Du har förtjänat det.</aqua>"
-  long_break_start: "<blue>Dags för en lång paus! Bra jobbat med att slutföra dina pass.</blue>"
+  timer_stop: "<red>Pomodoro-timern har stoppats</red>"
+  timer_pause: "<yellow>Pomodoro-timern har pausats</yellow>"
+  timer_resume: "<green>Pomodoro-timern har återupptagits</green>"
+  work_start: "<gold>Dags att fokusera! Arbetspasset har börjat</gold>"
+  break_start: "<aqua>Dags för en paus! Du har förtjänat det</aqua>"
+  long_break_start: "<blue>Dags för en lång paus! Bra jobbat med att slutföra dina pass</blue>"
   work_completed: "<green>Arbetspasset är slutfört! Bra jobbat!</green>"
   cant_chat: "<red>Du kan inte chatta under ett arbetspass!</red>"
-  preset_created: "<green>Förinställningen '<preset_name>' har skapats.</green>"
-  preset_renamed: "<green>Förinställningen '<old_name>' har bytt namn till '<new_name>'.</green>"
-  preset_removed: "<red>Förinställningen '<preset_name>' har tagits bort.</red>"
-  enter_preset_name: "<yellow>Vänligen skriv det nya förinställningsnamnet i chatten.</yellow>"
-  enter_new_preset_name: "<yellow>Vänligen skriv det nya namnet för förinställningen i chatten.</yellow>"
-  enter_new_icon_name: "<yellow>Vänligen skriv det nya ikonmaterialnamnet i chatten.</yellow>"
-  invalid_icon: "<red>Ogiltigt materialnamn för föremål.</red>"
-  preset_not_found: "<red>Förinställningen hittades inte: <preset>.</red>"
-  reload: "<green>Konfigurationen har laddats om.</green>"
+  preset_created: "<green>Förinställningen '<preset_name>' har skapats</green>"
+  preset_renamed: "<green>Förinställningen '<old_name>' har bytt namn till '<new_name>'</green>"
+  preset_removed: "<red>Förinställningen '<preset_name>' har tagits bort</red>"
+  enter_preset_name: "<yellow>Vänligen skriv det nya förinställningsnamnet i chatten</yellow>"
+  enter_new_preset_name: "<yellow>Vänligen skriv det nya namnet för förinställningen i chatten</yellow>"
+  enter_new_icon_name: "<yellow>Vänligen skriv det nya ikonmaterialnamnet i chatten</yellow>"
+  invalid_icon: "<red>Ogiltigt materialnamn för föremål</red>"
+  invalid_preset_name: "<red>Ogiltigt förinställningsnamn</red>"
+  preset_not_found: "<red>Förinställningen hittades inte: <preset></red>"
+  reload: "<green>Konfigurationen har laddats om</green>"
   timer_already_running: "<red>En timer är redan igång!</red>"
-  no_active_timer: "<red>Du har ingen aktiv timer.</red>"
-  cannot_pause_timer: "<red>Timern kan endast pausas under arbets- eller pauspass.</red>"
-  timer_not_paused: "<red>Timern är inte pausad.</red>"
+  no_active_timer: "<red>Du har ingen aktiv timer</red>"
+  cannot_pause_timer: "<red>Timern kan endast pausas under arbets- eller pauspass</red>"
+  timer_not_paused: "<red>Timern är inte pausad</red>"
 
 actionbar:
   moved_too_far: "<red>Du har rört dig för långt från din startpunkt!</red>"
@@ -72,15 +73,15 @@ ui:
     name: "<italic:false><green>Skapa ny förinställning</green>"
     lore:
       - "<italic:false><gray>Skapar en ny förinställning med</gray>"
-      - "<italic:false><gray>standardinställningar.</gray>"
+      - "<italic:false><gray>standardinställningar</gray>"
   rename_preset:
     name: "<italic:false><gold>Byt namn på förinställning</gold>"
     lore:
-      - "<italic:false><gray>Klicka för att byta namn på denna förinställning.</gray>"
+      - "<italic:false><gray>Klicka för att byta namn på denna förinställning</gray>"
   reicon_preset:
     name: "<italic:false><aqua>Ändra ikon</aqua>"
     lore:
-      - "<italic:false><gray>Klicka för att ändra denna förinställnings ikon.</gray>"
+      - "<italic:false><gray>Klicka för att ändra denna förinställnings ikon</gray>"
   icon_selection:
     title: "<gradient:#e65100:#f57c00><bold>Välj ikon</bold></gradient><gray>:</gray> <red><preset_name></red>"
     enchant:
@@ -93,7 +94,7 @@ ui:
     custom_id:
       name: "<italic:false><gold>Anpassat material</gold>"
       lore:
-        - "<italic:false><gray>Klicka för att skriva ett materialnamn.</gray>"
+        - "<italic:false><gray>Klicka för att skriva ett materialnamn</gray>"
   player_preset:
     lore:
       - "<italic:false><gray>Arbete: <white><work> min</white></gray>"
@@ -119,39 +120,39 @@ ui:
     pause:
       name: "<italic:false><red>Pausa</red>"
       lore:
-        - "<italic:false><gray>Klicka för att pausa timern.</gray>"
+        - "<italic:false><gray>Klicka för att pausa timern</gray>"
     resume:
       name: "<italic:false><green>Återuppta</green>"
       lore:
-        - "<italic:false><gray>Klicka för att återuppta timern.</gray>"
+        - "<italic:false><gray>Klicka för att återuppta timern</gray>"
     stop:
       name: "<italic:false><dark_red>Stoppa</dark_red>"
       lore:
-        - "<italic:false><gray>Klicka för att stoppa timern.</gray>"
+        - "<italic:false><gray>Klicka för att stoppa timern</gray>"
     bossbar_toggle:
       name: "<italic:false><gold>Bossbar</gold>"
       lore_enabled:
-        - "<italic:false><gray>Klicka för att <red>inaktivera</red> bossbaren.</gray>"
+        - "<italic:false><gray>Klicka för att <red>inaktivera</red> bossbaren</gray>"
       lore_disabled:
-        - "<italic:false><gray>Klicka för att <green>aktivera</green> bossbaren.</gray>"
+        - "<italic:false><gray>Klicka för att <green>aktivera</green> bossbaren</gray>"
     title_toggle:
       name: "<italic:false><gold>Titel</gold>"
       lore_enabled:
-        - "<italic:false><gray>Klicka för att <red>inaktivera</red> titeln.</gray>"
+        - "<italic:false><gray>Klicka för att <red>inaktivera</red> titeln</gray>"
       lore_disabled:
-        - "<italic:false><gray>Klicka för att <green>aktivera</green> titeln.</gray>"
+        - "<italic:false><gray>Klicka för att <green>aktivera</green> titeln</gray>"
   pomodoro_introduction:
     name: "<italic:false><gold>Hur använder man Pomodoro?</gold>"
     lore:
-      - "<italic:false><gray>Pomodoro-tekniken hjälper dig att fokusera och undvika utbrändhet.</gray>"
+      - "<italic:false><gray>Pomodoro-tekniken hjälper dig att fokusera och undvika utbrändhet</gray>"
       - ""
       - "<italic:false><white>Hur det fungerar:</white>"
-      - "<italic:false><gray>1. <aqua>Välj en förinställning</aqua> till vänster.</gray>"
-      - "<italic:false><gray>2. Timern startar ett <gold>Arbetspass</gold>.</gray>"
-      - "<italic:false><gray>3. Fokusera på din uppgift tills timern ringer.</gray>"
-      - "<italic:false><gray>4. Ta en kort <green>Paus</green>.</gray>"
-      - "<italic:false><gray>5. Efter några pass, ta en <blue>Lång paus</blue>.</gray>"
-      - "<italic:false><gray>6. Processen upprepas sedan från steg 2.</gray>"
+      - "<italic:false><gray>1. <aqua>Välj en förinställning</aqua> till vänster</gray>"
+      - "<italic:false><gray>2. Timern startar ett <gold>Arbetspass</gold></gray>"
+      - "<italic:false><gray>3. Fokusera på din uppgift tills timern ringer</gray>"
+      - "<italic:false><gray>4. Ta en kort <green>Paus</green></gray>"
+      - "<italic:false><gray>5. Efter några pass, ta en <blue>Lång paus</blue></gray>"
+      - "<italic:false><gray>6. Processen upprepas sedan från steg 2</gray>"
       - ""
       - "<italic:false><yellow>Klicka på en förinställning för att starta ditt första pass!</yellow>"
   work_completed:

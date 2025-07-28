@@ -1,6 +1,6 @@
 # --- General Plugin Configuration ---
 # IMPORTANT: Do not change this value. It is used for automatic configuration updates.
-config-version: 2
+config-version: 1
 
 # --- Session Restrictions ---
 # Configure what players can and cannot do during a work session.

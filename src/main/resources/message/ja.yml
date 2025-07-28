@@ -3,27 +3,28 @@ config-version: 1
 
 messages:
   timer_start: "<green>ポモドーロタイマーがプリセット: <preset>で開始されました！</green>"
-  timer_stop: "<red>ポモドーロタイマーが停止しました。</red>"
-  timer_pause: "<yellow>ポモドーロタイマーが一時停止しました。</yellow>"
-  timer_resume: "<green>ポモドー-ロタイマーが再開されました。</green>"
-  work_start: "<gold>集中する時間です！作業セッションが開始されました。</gold>"
-  break_start: "<aqua>休憩の時間です！お疲れ様でした。</aqua>"
-  long_break_start: "<blue>長い休憩の時間です！セッションお疲れ様でした。</blue>"
+  timer_stop: "<red>ポモドーロタイマーが停止しました</red>"
+  timer_pause: "<yellow>ポモドーロタイマーが一時停止しました</yellow>"
+  timer_resume: "<green>ポモドーロタイマーが再開されました</green>"
+  work_start: "<gold>集中する時間です！作業セッションが開始されました</gold>"
+  break_start: "<aqua>休憩の時間です！お疲れ様でした</aqua>"
+  long_break_start: "<blue>長い休憩の時間です！セッションお疲れ様でした</blue>"
   work_completed: "<green>作業セッションが完了しました！お疲れ様でした！</green>"
   cant_chat: "<red>作業セッション中はチャットできません！</red>"
-  preset_created: "<green>プリセット '<preset_name>' が作成されました。</green>"
-  preset_renamed: "<green>プリセット '<old_name>' の名前が '<new_name>' に変更されました。</green>"
-  preset_removed: "<red>プリセット '<preset_name>' が削除されました。</red>"
-  enter_preset_name: "<yellow>チャットに新しいプリセット名を入力してください。</yellow>"
-  enter_new_preset_name: "<yellow>チャットにプリセットの新しい名前を入力してください。</yellow>"
-  enter_new_icon_name: "<yellow>チャットに新しいアイコンの素材名を入力してください。</yellow>"
-  invalid_icon: "<red>無効なアイテム素材名です。</red>"
-  preset_not_found: "<red>プリセットが見つかりません: <preset>。</red>"
-  reload: "<green>設定がリロードされました。</green>"
+  preset_created: "<green>プリセット '<preset_name>' が作成されました</green>"
+  preset_renamed: "<green>プリセット '<old_name>' の名前が '<new_name>' に変更されました</green>"
+  preset_removed: "<red>プリセット '<preset_name>' が削除されました</red>"
+  enter_preset_name: "<yellow>チャットに新しいプリセット名を入力してください</yellow>"
+  enter_new_preset_name: "<yellow>チャットにプリセットの新しい名前を入力してください</yellow>"
+  enter_new_icon_name: "<yellow>チャットに新しいアイコンの素材名を入力してください</yellow>"
+  invalid_icon: "<red>無効なアイテム素材名です</red>"
+  invalid_preset_name: "<red>無効なプリセット名です</red>"
+  preset_not_found: "<red>プリセットが見つかりません: <preset></red>"
+  reload: "<green>設定がリロードされました</green>"
   timer_already_running: "<red>タイマーはすでに実行中です！</red>"
-  no_active_timer: "<red>アクティブなタイマーがありません。</red>"
-  cannot_pause_timer: "<red>タイマーは作業または休憩セッション中にのみ一時停止できます。</red>"
-  timer_not_paused: "<red>タイマーは一時停止していません。</red>"
+  no_active_timer: "<red>アクティブなタイマーがありません</red>"
+  cannot_pause_timer: "<red>タイマーは作業または休憩セッション中にのみ一時停止できます</red>"
+  timer_not_paused: "<red>タイマーは一時停止していません</red>"
 
 actionbar:
   moved_too_far: "<red>開始地点から離れすぎています！</red>"
@@ -72,15 +73,15 @@ ui:
     name: "<italic:false><green>新しいプリセットを作成</green>"
     lore:
       - "<italic:false><gray>デフォルト設定で新しい</gray>"
-      - "<italic:false><gray>プリセットを作成します。</gray>"
+      - "<italic:false><gray>プリセットを作成します</gray>"
   rename_preset:
     name: "<italic:false><gold>プリセットの名前を変更</gold>"
     lore:
-      - "<italic:false><gray>クリックしてこのプリセットの名前を変更します。</gray>"
+      - "<italic:false><gray>クリックしてこのプリセットの名前を変更します</gray>"
   reicon_preset:
     name: "<italic:false><aqua>アイコンを変更</aqua>"
     lore:
-      - "<italic:false><gray>クリックしてこのプリセットのアイコンを変更します。</gray>"
+      - "<italic:false><gray>クリックしてこのプリセットのアイコンを変更します</gray>"
   icon_selection:
     title: "<gradient:#e65100:#f57c00><bold>アイコンを選択</bold></gradient><gray>:</gray> <red><preset_name></red>"
     enchant:
@@ -93,7 +94,7 @@ ui:
     custom_id:
       name: "<italic:false><gold>カスタム素材</gold>"
       lore:
-        - "<italic:false><gray>クリックして素材名を入力します。</gray>"
+        - "<italic:false><gray>クリックして素材名を入力します</gray>"
   player_preset:
     lore:
       - "<italic:false><gray>作業: <white><work> 分</white></gray>"
@@ -119,25 +120,25 @@ ui:
     pause:
       name: "<italic:false><red>一時停止</red>"
       lore:
-        - "<italic:false><gray>クリックしてタイマーを一時停止します。</gray>"
+        - "<italic:false><gray>クリックしてタイマーを一時停止します</gray>"
     resume:
       name: "<italic:false><green>再開</green>"
       lore:
-        - "<italic:false><gray>クリックしてタイマーを再開します。</gray>"
+        - "<italic:false><gray>クリックしてタイマーを再開します</gray>"
     stop:
       name: "<italic:false><dark_red>停止</dark_red>"
       lore:
-        - "<italic:false><gray>クリックしてタイマーを停止します。</gray>"
+        - "<italic:false><gray>クリックしてタイマーを停止します</gray>"
     bossbar_toggle:
       name: "<italic:false><gold>ボスバー</gold>"
       lore_enabled:
-        - "<italic:false><gray>クリックしてボスバーを<red>無効</red>にします。</gray>"
+        - "<italic:false><gray>クリックしてボスバーを<red>無効</red>にします</gray>"
       lore_disabled:
-        - "<italic:false><gray>クリックしてボスバーを<green>有効</green>にします。</gray>"
+        - "<italic:false><gray>クリックしてボスバーを<green>有効</green>にします</gray>"
     title_toggle:
       name: "<italic:false><gold>タイトル</gold>"
       lore_enabled:
-        - "<italic:false><gray>クリックしてタイトルを<red>無効</red>にします。</gray>"
+        - "<italic:false><gray>クリックしてタイトルを<red>無効</red>にします</gray>"
       lore_disabled:
         - "<italic:false><gray>クリックしてタイトルを<green>有効</green>にします。</gray>"
   pomodoro_introduction:

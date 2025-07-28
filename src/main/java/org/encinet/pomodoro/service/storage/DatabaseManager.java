@@ -5,7 +5,9 @@ import org.encinet.pomodoro.config.impl.PresetConfig;
 
 import java.io.File;
 import java.sql.*;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -93,7 +95,6 @@ public class DatabaseManager {
         }
         return presets;
     }
-
     public void savePlayerPresets(UUID uuid, Map<String, PresetConfig.Preset> presets) {
         String sql = "INSERT INTO presets (uuid, key, name, icon, enchanted, work, break, long_break, sessions) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) " +
@@ -106,26 +107,45 @@ public class DatabaseManager {
                 "long_break = excluded.long_break, " +
                 "sessions = excluded.sessions";
 
-        try (PreparedStatement ps = connection.prepareStatement(sql)) {
-            for (Map.Entry<String, PresetConfig.Preset> entry : presets.entrySet()) {
-                ps.setString(1, uuid.toString());
-                ps.setString(2, entry.getKey());
-                ps.setString(3, entry.getValue().name());
-                ps.setString(4, entry.getValue().icon());
-                ps.setBoolean(5, entry.getValue().enchanted());
-                ps.setInt(6, entry.getValue().work());
-                ps.setInt(7, entry.getValue().breakTime());
-                ps.setInt(8, entry.getValue().longBreak());
-                ps.setInt(9, entry.getValue().sessions());
-                ps.addBatch();
+        try {
+            connection.setAutoCommit(false);
+            try (PreparedStatement ps = connection.prepareStatement(sql)) {
+                for (Map.Entry<String, PresetConfig.Preset> entry : presets.entrySet()) {
+                    String key = entry.getKey();
+                    String name = entry.getValue().name();
+
+
+                    ps.setString(1, uuid.toString());
+                    ps.setString(2, key);
+                    ps.setString(3, name);
+                    ps.setString(4, entry.getValue().icon());
+                    ps.setBoolean(5, entry.getValue().enchanted());
+                    ps.setInt(6, entry.getValue().work());
+                    ps.setInt(7, entry.getValue().breakTime());
+                    ps.setInt(8, entry.getValue().longBreak());
+                    ps.setInt(9, entry.getValue().sessions());
+                    ps.addBatch();
+                }
+                ps.executeBatch();
+                connection.commit();
+            } catch (SQLException e) {
+                connection.rollback();
+                plugin.getLogger().log(Level.SEVERE, "Could not save player presets for " + uuid, e);
+            } finally {
+                connection.setAutoCommit(true);
             }
-            ps.executeBatch();
         } catch (SQLException e) {
-            plugin.getLogger().log(Level.SEVERE, "Could not save player presets for " + uuid, e);
+            plugin.getLogger().log(Level.SEVERE, "Could not manage transaction for saving presets.", e);
         }
     }
 
     public void updatePresetField(UUID uuid, String key, String field, Object value) {
+        List<String> allowedFields = Arrays.asList("name", "icon", "enchanted", "work", "break", "long_break", "sessions");
+        if (!allowedFields.contains(field)) {
+            plugin.getLogger().warning("Attempted to update an invalid or restricted preset field: " + field);
+            return;
+        }
+
         String sql = "UPDATE presets SET " + field + " = ? WHERE uuid = ? AND key = ?";
         try (PreparedStatement ps = connection.prepareStatement(sql)) {
             ps.setObject(1, value);

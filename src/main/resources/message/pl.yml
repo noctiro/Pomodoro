@@ -1,0 +1,190 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+messages:
+  timer_start: "<green>Minutnik Pomodoro uruchomiony z ustawieniem: <preset>!</green>"
+  timer_stop: "<red>Minutnik Pomodoro zatrzymany</red>"
+  timer_pause: "<yellow>Minutnik Pomodoro wstrzymany</yellow>"
+  timer_resume: "<green>Minutnik Pomodoro wznowiony</green>"
+  work_start: "<gold>Czas na skupienie! Sesja pracy rozpoczęta</gold>"
+  break_start: "<aqua>Czas na przerwę! Zasłużyłeś na to</aqua>"
+  long_break_start: "<blue>Czas na długą przerwę! Dobra robota po ukończeniu sesji</blue>"
+  work_completed: "<green>Sesja pracy zakończona! Dobra robota!</green>"
+  cant_chat: "<red>Nie możesz rozmawiać podczas sesji pracy!</red>"
+  preset_created: "<green>Ustawienie '<preset_name>' utworzone</green>"
+  preset_renamed: "<green>Zmieniono nazwę ustawienia '<old_name>' na '<new_name>'</green>"
+  preset_removed: "<red>Usunięto ustawienie '<preset_name>'</red>"
+  enter_preset_name: "<yellow>Proszę wpisać nową nazwę ustawienia na czacie</yellow>"
+  enter_new_preset_name: "<yellow>Proszę wpisać nową nazwę dla ustawienia na czacie</yellow>"
+  enter_new_icon_name: "<yellow>Proszę wpisać nową nazwę materiału ikony na czacie</yellow>"
+  invalid_icon: "<red>Nieprawidłowa nazwa materiału przedmiotu</red>"
+  invalid_preset_name: "<red>Nieprawidłowa nazwa ustawienia</red>"
+  preset_not_found: "<red>Nie znaleziono ustawienia: <preset></red>"
+  reload: "<green>Konfiguracja przeładowana</green>"
+  timer_already_running: "<red>Minutnik już działa!</red>"
+  no_active_timer: "<red>Nie masz aktywnego minutnika</red>"
+  cannot_pause_timer: "<red>Minutnik można wstrzymać tylko podczas sesji pracy lub przerwy</red>"
+  timer_not_paused: "<red>Minutnik nie jest wstrzymany</red>"
+
+actionbar:
+  moved_too_far: "<red>Oddaliłeś się za daleko od punktu startowego!</red>"
+  cant_move: "<red>Nie możesz się poruszać podczas sesji pracy!</red>"
+  cant_teleport: "<red>Nie możesz się teleportować podczas sesji pracy!</red>"
+
+ui:
+  main:
+    title: "<gradient:#e65100:#f57c00><bold>Pomodoro</bold></gradient>"
+  edit:
+    title: "<gradient:#e65100:#f57c00><bold>Edytowanie</bold></gradient><gray>:</gray> <red><preset_name></red>"
+  back_button: "<italic:false><red>Wstecz</red>"
+  work_duration:
+    name: "<italic:false><gold>Czas Pracy</gold>"
+    lore:
+      - "<italic:false><gray>Obecnie: <white><duration> minut</white></gray>"
+      - ""
+      - "<italic:false><green>Lewy przycisk myszy, aby dodać 1</green>"
+      - "<italic:false><red>Prawy przycisk myszy, aby odjąć 1</red>"
+      - "<italic:false><yellow>Shift+klik, aby dostosować o 10</yellow>"
+  break_duration:
+    name: "<italic:false><aqua>Czas Przerwy</aqua>"
+    lore:
+      - "<italic:false><gray>Obecnie: <white><duration> minut</white></gray>"
+      - ""
+      - "<italic:false><green>Lewy przycisk myszy, aby dodać 1</green>"
+      - "<italic:false><red>Prawy przycisk myszy, aby odjąć 1</red>"
+      - "<italic:false><yellow>Shift+klik, aby dostosować o 10</yellow>"
+  long_break_duration:
+    name: "<italic:false><#f57c00>Czas Długiej Przerwy</#f57c00>"
+    lore:
+      - "<italic:false><gray>Obecnie: <white><duration> minut</white></gray>"
+      - ""
+      - "<italic:false><green>Lewy przycisk myszy, aby dodać 1</green>"
+      - "<italic:false><red>Prawy przycisk myszy, aby odjąć 1</red>"
+      - "<italic:false><yellow>Shift+klik, aby dostosować o 10</yellow>"
+  sessions:
+    name: "<italic:false><gold>Sesje</gold>"
+    lore:
+      - "<italic:false><gray>Obecnie: <white><count></white></gray>"
+      - ""
+      - "<italic:false><green>Lewy przycisk myszy, aby dodać 1</green>"
+      - "<italic:false><red>Prawy przycisk myszy, aby odjąć 1</red>"
+      - "<italic:false><yellow>Shift+klik, aby dostosować o 10</yellow>"
+  create_preset:
+    name: "<italic:false><green>Utwórz nowe ustawienie</green>"
+    lore:
+      - "<italic:false><gray>Tworzy nowe ustawienie z</gray>"
+      - "<italic:false><gray>ustawieniami domyślnymi</gray>"
+  rename_preset:
+    name: "<italic:false><gold>Zmień nazwę ustawienia</gold>"
+    lore:
+      - "<italic:false><gray>Kliknij, aby zmienić nazwę tego ustawienia</gray>"
+  reicon_preset:
+    name: "<italic:false><aqua>Zmień ikonę</aqua>"
+    lore:
+      - "<italic:false><gray>Kliknij, aby zmienić ikonę tego ustawienia</gray>"
+  icon_selection:
+    title: "<gradient:#e65100:#f57c00><bold>Wybierz ikonę</bold></gradient><gray>:</gray> <red><preset_name></red>"
+    enchant:
+      name: "<italic:false><#e040fb><bold>Przełącz zaklęcie</bold></#e040fb>"
+      lore:
+        - "<italic:false><gray>Obecnie: <white><status></white></gray>"
+    enchant_status:
+      enabled: "<green>Włączone</green>"
+      disabled: "<red>Wyłączone</red>"
+    custom_id:
+      name: "<italic:false><gold>Materiał niestandardowy</gold>"
+      lore:
+        - "<italic:false><gray>Kliknij, aby wpisać nazwę materiału</gray>"
+  player_preset:
+    lore:
+      - "<italic:false><gray>Praca: <white><work> min</white></gray>"
+      - "<italic:false><gray>Przerwa: <white><break> min</white></gray>"
+      - "<italic:false><gray>Długa przerwa: <white><long_break> min</white></gray>"
+      - "<italic:false><gray>Sesje: <white><sessions></white></gray>"
+      - ""
+      - "<italic:false><green>Lewy przycisk myszy, aby zastosować</green>"
+      - "<italic:false><yellow>Prawy przycisk myszy, aby edytować</yellow>"
+      - "<italic:false><red>Shift + prawy przycisk myszy, aby usunąć</red>"
+  player_stats:
+    lore:
+      - "<italic:false><gray>Całkowity czas skupienia:</gray>"
+      - "<italic:false><white><total_focus_time></white>"
+      - ""
+      - "<italic:false><gray>Ukończone sesje pracy: <white><total_work_sessions></white></gray>"
+  timer:
+    title: "<gradient:#e65100:#f57c00><bold>Działa</bold></gradient><gray>:</gray> <red><preset_name></red>"
+    status:
+      name: "<italic:false><gold>Status: <white><status></white></gold>"
+      lore:
+        - "<italic:false><gray>Pozostały czas: <white><time></white></gray>"
+    pause:
+      name: "<italic:false><red>Pauza</red>"
+      lore:
+        - "<italic:false><gray>Kliknij, aby wstrzymać minutnik</gray>"
+    resume:
+      name: "<italic:false><green>Wznów</green>"
+      lore:
+        - "<italic:false><gray>Kliknij, aby wznowić minutnik</gray>"
+    stop:
+      name: "<italic:false><dark_red>Stop</dark_red>"
+      lore:
+        - "<italic:false><gray>Kliknij, aby zatrzymać minutnik</gray>"
+    bossbar_toggle:
+      name: "<italic:false><gold>Pasek bossa</gold>"
+      lore_enabled:
+        - "<italic:false><gray>Kliknij, aby <red>wyłączyć</red> pasek bossa</gray>"
+      lore_disabled:
+        - "<italic:false><gray>Kliknij, aby <green>włączyć</green> pasek bossa</gray>"
+    title_toggle:
+      name: "<italic:false><gold>Tytuł</gold>"
+      lore_enabled:
+        - "<italic:false><gray>Kliknij, aby <red>wyłączyć</red> tytuł</gray>"
+      lore_disabled:
+        - "<italic:false><gray>Kliknij, aby <green>włączyć</green> tytuł</gray>"
+  pomodoro_introduction:
+    name: "<italic:false><gold>Jak używać Pomodoro?</gold>"
+    lore:
+      - "<italic:false><gray>Technika Pomodoro pomaga skupić się i uniknąć wypalenia</gray>"
+      - ""
+      - "<italic:false><white>Jak to działa:</white>"
+      - "<italic:false><gray>1. <aqua>Wybierz ustawienie</aqua> po lewej stronie</gray>"
+      - "<italic:false><gray>2. Minutnik rozpoczyna sesję <gold>Pracy</gold></gray>"
+      - "<italic:false><gray>3. Skup się na zadaniu, aż zadzwoni minutnik</gray>"
+      - "<italic:false><gray>4. Zrób krótką <green>Przerwę</green></gray>"
+      - "<italic:false><gray>5. Po kilku sesjach zrób <blue>Długą Przerwę</blue></gray>"
+      - "<italic:false><gray>6. Proces powtarza się od kroku 2</gray>"
+      - ""
+      - "<italic:false><yellow>Kliknij ustawienie, aby rozpocząć pierwszą sesję!</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>Praca zakończona!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>Sesja pracy zakończona</gold>"
+      lore:
+        - "<italic:false><gray>Ta sesja pracy trwała <white><work_duration></white></gray>"
+        - "<italic:false><gray>Skupiałeś się przez <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>Rozpocznij przerwę</green>"
+      lore:
+        - "<italic:false><gray>Kliknij, aby rozpocząć przerwę</gray>"
+
+bossbar:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><gray>:</gray> <white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
+
+text-display:
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <gray>-</gray> <white><status></white> <gray>-</gray> <white><time></white>"
+
+status:
+  work: "Praca"
+  work_completed: "Praca zakończona"
+  break: "Przerwa"
+  long_break: "Długa przerwa"
+  paused: "Wstrzymano"
+  stopped: "Zatrzymano"
+
+time_units:
+  minutes: "min"
+  seconds: "s"

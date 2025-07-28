@@ -1,0 +1,190 @@
+# IMPORTANT: Do not change this value. It is used for automatic updates.
+config-version: 1
+
+messages:
+  timer_start: "<green>番茄鐘已啟動！當前方案: <preset></green>"
+  timer_stop: "<red>番茄鐘已停止</red>"
+  timer_pause: "<yellow>番茄鐘已暫停</yellow>"
+  timer_resume: "<green>番茄鐘已恢復</green>"
+  work_start: "<gold>該專心了！專注環節開始</gold>"
+  break_start: "<aqua>休息時間到！你辛苦了！</aqua>"
+  long_break_start: "<blue>長休息時間到！恭喜你完成所有專注環節</blue>"
+  work_completed: "<green>專注環節完成！做得好！</green>"
+  cant_chat: "<red>專注期間禁止閒聊！</red>"
+  preset_created: "<green>方案 '<preset_name>' 已創建</green>"
+  preset_renamed: "<green>方案 '<old_name>' 已重命名為 '<new_name>'</green>"
+  preset_removed: "<red>方案 '<preset_name>' 已刪除</red>"
+  enter_preset_name: "<yellow>請在聊天框內輸入新方案名</yellow>"
+  enter_new_preset_name: "<yellow>請在聊天框內為方案輸入新名稱</yellow>"
+  enter_new_icon_name: "<yellow>請在聊天框內輸入新圖標的物品英文ID</yellow>"
+  invalid_icon: "<red>無效的物品英文ID</red>"
+  invalid_preset_name: "<red>無效的方案名稱</red>"
+  preset_not_found: "<red>找不到方案: <preset></red>"
+  reload: "<green>配置已重載</green>"
+  timer_already_running: "<red>已有計時器正在運行！</red>"
+  no_active_timer: "<red>你沒有正在運行的計時器</red>"
+  cannot_pause_timer: "<red>只能在專注或休息期間暫停計時器</red>"
+  timer_not_paused: "<red>計時器未暫停</red>"
+
+actionbar:
+  moved_too_far: "<red>你離得太遠了！</red>"
+  cant_move: "<red>專注期間禁止移動！</red>"
+  cant_teleport: "<red>專注期間禁止傳送！</red>"
+
+ui:
+  main:
+    title: "<gradient:#e65100:#f57c00><bold>番茄鐘</bold></gradient>"
+  edit:
+    title: "<gradient:#e65100:#f57c00><bold>編輯方案</bold></gradient><gray>:</gray> <red><preset_name></red>"
+  back_button: "<italic:false><red>返回</red>"
+  work_duration:
+    name: "<italic:false><gold>專注時長</gold>"
+    lore:
+      - "<italic:false><gray>當前: <white><duration> 分鐘</white></gray>"
+      - ""
+      - "<italic:false><green>左鍵增加 1</green>"
+      - "<italic:false><red>右鍵減少 1</red>"
+      - "<italic:false><yellow>Shift+單擊調整 10</yellow>"
+  break_duration:
+    name: "<italic:false><aqua>休息時長</aqua>"
+    lore:
+      - "<italic:false><gray>當前: <white><duration> 分鐘</white></gray>"
+      - ""
+      - "<italic:false><green>左鍵增加 1</green>"
+      - "<italic:false><red>右鍵減少 1</red>"
+      - "<italic:false><yellow>Shift+單擊調整 10</yellow>"
+  long_break_duration:
+    name: "<italic:false><#f57c00>長休息時長</#f57c00>"
+    lore:
+      - "<italic:false><gray>當前: <white><duration> 分鐘</white></gray>"
+      - ""
+      - "<italic:false><green>左鍵增加 1</green>"
+      - "<italic:false><red>右鍵減少 1</red>"
+      - "<italic:false><yellow>Shift+單擊調整 10</yellow>"
+  sessions:
+    name: "<italic:false><gold>循環次數</gold>"
+    lore:
+      - "<italic:false><gray>當前: <white><count></white></gray>"
+      - ""
+      - "<italic:false><green>左鍵增加 1</green>"
+      - "<italic:false><red>右鍵減少 1</red>"
+      - "<italic:false><yellow>Shift+單擊調整 10</yellow>"
+  create_preset:
+    name: "<italic:false><green>創建新方案</green>"
+    lore:
+      - "<italic:false><gray>使用默認設置創建</gray>"
+      - "<italic:false><gray>一個新的方案</gray>"
+  rename_preset:
+    name: "<italic:false><gold>重命名方案</gold>"
+    lore:
+      - "<italic:false><gray>單擊以重命名此方案</gray>"
+  reicon_preset:
+    name: "<italic:false><aqua>更改圖標</aqua>"
+    lore:
+      - "<italic:false><gray>單擊以更改此方案的圖標</gray>"
+  icon_selection:
+    title: "<gradient:#e65100:#f57c00><bold>選擇圖標</bold></gradient><gray>:</gray> <red><preset_name></red>"
+    enchant:
+      name: "<italic:false><#e040fb><bold>切換附魔光效</bold></#e040fb>"
+      lore:
+        - "<italic:false><gray>當前: <white><status></white></gray>"
+    enchant_status:
+      enabled: "<green>已啟用</green>"
+      disabled: "<red>已禁用</red>"
+    custom_id:
+      name: "<italic:false><gold>自定義物品</gold>"
+      lore:
+        - "<italic:false><gray>單擊以輸入物品英文ID</gray>"
+  player_preset:
+    lore:
+      - "<italic:false><gray>專注: <white><work> 分鐘</white></gray>"
+      - "<italic:false><gray>休息: <white><break> 分鐘</white></gray>"
+      - "<italic:false><gray>長休息: <white><long_break> 分鐘</white></gray>"
+      - "<italic:false><gray>循環: <white><sessions> 次</white></gray>"
+      - ""
+      - "<italic:false><green>左鍵應用</green>"
+      - "<italic:false><yellow>右鍵編輯</yellow>"
+      - "<italic:false><red>Shift+右鍵刪除</red>"
+  player_stats:
+    lore:
+      - "<italic:false><gray>累計專注時長:</gray>"
+      - "<italic:false><white><total_focus_time></white>"
+      - ""
+      - "<italic:false><gray>完成的專注環節: <white><total_work_sessions></white></gray>"
+  timer:
+    title: "<gradient:#e65100:#f57c00><bold>正在進行</bold></gradient><gray>:</gray> <red><preset_name></red>"
+    status:
+      name: "<italic:false><gold>狀態: <white><status></white></gold>"
+      lore:
+        - "<italic:false><gray>剩餘時間: <white><time></white></gray>"
+    pause:
+      name: "<italic:false><red>暫停</red>"
+      lore:
+        - "<italic:false><gray>單擊暫停計時器</gray>"
+    resume:
+      name: "<italic:false><green>恢復</green>"
+      lore:
+        - "<italic:false><gray>單擊恢復計時器</gray>"
+    stop:
+      name: "<italic:false><dark_red>停止</dark_red>"
+      lore:
+        - "<italic:false><gray>單擊停止計時器</gray>"
+    bossbar_toggle:
+      name: "<italic:false><gold>Boss欄</gold>"
+      lore_enabled:
+        - "<italic:false><gray>單擊<red>禁用</red>Boss欄</gray>"
+      lore_disabled:
+        - "<italic:false><gray>單擊<green>啟用</green>Boss欄</gray>"
+    title_toggle:
+      name: "<italic:false><gold>標題</gold>"
+      lore_enabled:
+        - "<italic:false><gray>單擊<red>禁用</red>標題</gray>"
+      lore_disabled:
+        - "<italic:false><gray>單擊<green>啟用</green>標題</gray>"
+  pomodoro_introduction:
+    name: "<italic:false><gold>如何使用番茄鐘？</gold>"
+    lore:
+      - "<italic:false><gray>番茄工作法能幫助你集中註意力，防止精力耗盡</gray>"
+      - ""
+      - "<italic:false><white>使用方法：</white>"
+      - "<italic:false><gray>1. 在左側<aqua>選擇一個方案</aqua></gray>"
+      - "<italic:false><gray>2. 計時器將開始一個<gold>專注</gold>環節</gray>"
+      - "<italic:false><gray>3. 專心完成你的任務，直到計時器響起</gray>"
+      - "<italic:false><gray>4. 進行一次短暫的<green>休息</green></gray>"
+      - "<italic:false><gray>5. 完成數個專注環節後，進行一次<blue>長休息</blue></gray>"
+      - "<italic:false><gray>6. 然後從第2步開始循環</gray>"
+      - ""
+      - "<italic:false><yellow>點擊一個方案來開始你的第一個專注環節吧！</yellow>"
+  work_completed:
+    title: "<gradient:#e65100:#f57c00><bold>專注完成!</bold></gradient>"
+    status:
+      name: "<italic:false><gold>專注環節完成</gold>"
+      lore:
+        - "<italic:false><gray>本專注環節共 <white><work_duration></white></gray>"
+        - "<italic:false><gray>你已專注 <white><total_focused_time></white></gray>"
+    start_break:
+      name: "<italic:false><green>開始休息</green>"
+      lore:
+        - "<italic:false><gray>單擊以開始你的休息時間</gray>"
+
+bossbar:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient><gray>:</gray> <white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
+
+title:
+  title: "<gradient:#e65100:#f57c00><preset_name></gradient>"
+  subtitle: "<white><status> <gray>|</gray> <current_session>/<total_sessions> <gray>|</gray> <time></white>"
+
+text-display:
+  format: "<gradient:#e65100:#f57c00><bold><preset_name></bold></gradient> <gray>-</gray> <white><status></white> <gray>-</gray> <white><time></white>"
+
+status:
+  work: "專注中"
+  work_completed: "專注完成"
+  break: "休息中"
+  long_break: "長休息中"
+  paused: "已暫停"
+  stopped: "已停止"
+
+time_units:
+  minutes: "分鐘"
+  seconds: "秒"

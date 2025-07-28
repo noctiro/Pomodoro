@@ -11,6 +11,9 @@ import java.util.UUID;
 import java.util.function.ToIntFunction;
 
 public class PlayerPresetManager {
+
+    private static final int MAX_PRESET_NAME_LENGTH = 32;
+
     private final Map<UUID, Map<String, PresetConfig.Preset>> playerPresets = new HashMap<>();
     private final DatabaseManager databaseManager;
 
@@ -241,5 +244,18 @@ public class PlayerPresetManager {
     public void updateSessions(Player player, String key, int changeAmount) {
         updatePresetIntegerField(player, key, changeAmount, "sessions", PresetConfig.Preset::sessions,
                 (old, val) -> new PresetConfig.Preset(old.name(), old.icon(), old.enchanted(), old.work(), old.breakTime(), old.longBreak(), val));
+    }
+
+    /**
+     * Validates a preset name or key.
+     *
+     * @param name The string to validate.
+     * @return true if the string is valid, false otherwise.
+     */
+    public static boolean isValidPresetName(String name) {
+        if (name == null || name.length() > MAX_PRESET_NAME_LENGTH || name.trim().isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }

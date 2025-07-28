@@ -187,6 +187,11 @@ public class PlayerListener implements Listener {
     }
 
     private void handleCreatePreset(Player player, String input) {
+        if (!PlayerPresetManager.isValidPresetName(input)) {
+            player.sendMessage(languageManager.getMessage(player, "messages.invalid_preset_name"));
+            setPlayerInputState(player.getUniqueId(), "create"); // Re-prompt
+            return;
+        }
         String key = input.toLowerCase().replace(" ", "_");
         PresetConfig.Preset defaultPreset = configManager.getConfig(PresetConfig.class).getTemplatePreset();
         List<Material> icons = IconSelectionUI.getCommonIcons();
@@ -199,6 +204,11 @@ public class PlayerListener implements Listener {
     }
 
     private void handleRenamePreset(Player player, String state, String input) {
+        if (!PlayerPresetManager.isValidPresetName(input)) {
+            player.sendMessage(languageManager.getMessage(player, "messages.invalid_preset_name"));
+            setPlayerInputState(player.getUniqueId(), state); // Re-prompt with the same state
+            return;
+        }
         String key = state.split(":")[1];
         String oldName = playerPresetManager.getPlayerPresets(player).get(key).name();
         playerPresetManager.renamePlayerPreset(player, key, input);
