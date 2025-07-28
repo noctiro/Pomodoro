@@ -2,13 +2,13 @@
 
 A highly customizable, GUI-driven Pomodoro timer to help players manage their time and stay focused in Minecraft.
 
-![Paper](https://img.shields.io/badge/Paper-1.21%2B-blue)
+![Paper](https://img.shields.io/badge/Paper-1.21%2B-blue) ![Folia](https://img.shields.io/badge/Folia-1.21%2B-green)
 ![PacketEvents](https://img.shields.io/badge/Dependency-PacketEvents-orange)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
 ## Requirements
 
-- **Server Version**: Paper 1.21+
+- **Server Version**: Paper / Folia 1.21+
 - **Dependencies**: [PacketEvents](https://modrinth.com/plugin/packetevents) (Required)
 
 ## How to Use
