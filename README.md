@@ -57,7 +57,7 @@ For detailed information on each option, please refer to the comments within the
 
 ### `presets.yml`
 
-This file defines the available Pomodoro timer presets. You can add, remove, or modify presets here.
+This file defines the default Pomodoro timer presets provided to all players, serving as examples or starting points. You can add, remove, or modify these presets here. Player-created custom presets are stored separately and do not alter this file.
 
 **Preset Structure:**
 
