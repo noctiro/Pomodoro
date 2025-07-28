@@ -156,8 +156,15 @@ public class PlayerListener implements Listener {
             player.teleport(start);
             return;
         }
-    
-        Vector velocity = direction.normalize().multiply(0.5);
+
+        // The velocity will be proportional to the distance, with a cap.
+        // This prevents the jittery movement when the player is very close
+        // because we are no longer normalizing a tiny vector.
+        Vector velocity = direction;
+        double maxSpeed = 0.5;
+        if (velocity.lengthSquared() > maxSpeed * maxSpeed) {
+            velocity = velocity.normalize().multiply(maxSpeed);
+        }
         player.setVelocity(velocity);
     }
 
@@ -245,6 +252,7 @@ public class PlayerListener implements Listener {
         Player player = event.getPlayer();
         pomodoroManager.stop(player);
         playerPresetManager.savePlayerPresets(player.getUniqueId(), playerPresetManager.getPlayerPresets(player));
+        playerPresetManager.clearPlayerCache(player.getUniqueId());
     }
 
     @EventHandler

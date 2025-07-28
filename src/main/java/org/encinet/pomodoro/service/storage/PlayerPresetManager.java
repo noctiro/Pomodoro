@@ -43,6 +43,16 @@ public class PlayerPresetManager {
     }
 
     /**
+     * Clears a player's preset data from the cache.
+     * This should be called when a player leaves the server to prevent memory leaks.
+     *
+     * @param playerUUID The UUID of the player whose cache is to be cleared.
+     */
+    public void clearPlayerCache(UUID playerUUID) {
+        playerPresets.remove(playerUUID);
+    }
+
+    /**
      * Gets a combined view of a player's presets, including global presets.
      * Player-specific presets will overwrite global presets with the same key.
      *
