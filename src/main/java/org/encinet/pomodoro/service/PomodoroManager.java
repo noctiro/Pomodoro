@@ -86,6 +86,7 @@ public class PomodoroManager {
             // Check player location before resuming
             if (isLocationTooFar(session, player.getLocation())) {
                 Pomodoro.getInstance().getLanguageManager().sendActionBar(player, "actionbar.moved_too_far");
+                Pomodoro.getInstance().getSoundManager().playLeaveWarningSound(player);
                 player.teleport(session.getStartLocation());
             }
             session.setState(session.getPreviousState(), player, true);
