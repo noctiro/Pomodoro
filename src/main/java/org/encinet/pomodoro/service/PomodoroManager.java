@@ -83,6 +83,11 @@ public class PomodoroManager {
     public void resume(Player player) {
         PomodoroSession session = getSession(player);
         if (session != null && session.getState() == PomodoroState.PAUSED) {
+            // Check player location before resuming
+            if (isLocationTooFar(session, player.getLocation())) {
+                Pomodoro.getInstance().getLanguageManager().sendActionBar(player, "actionbar.moved_too_far");
+                player.teleport(session.getStartLocation());
+            }
             session.setState(session.getPreviousState(), player, true);
         }
     }
